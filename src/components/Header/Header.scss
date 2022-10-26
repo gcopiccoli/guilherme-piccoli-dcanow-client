@@ -4,6 +4,8 @@
 @use "../../styles/_partials/_utilities/variables" as *;
 
 .header {
+  display: fixed;
+
   &__container {
     display: flex;
     justify-content: space-between;
