@@ -1,0 +1,59 @@
+@use "../../styles/_partials/_utilities/resets" as *;
+@use "../../styles/_partials/_utilities/typography" as *;
+@use "../../styles/_partials/_utilities/mixins" as *;
+@use "../../styles/_partials/_utilities/variables" as *;
+
+.footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  background-color: $background-color-secondary;
+  opacity: 0.9;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+  }
+
+  &__wrapper {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    padding: 1.6rem 0;
+  }
+
+  &__wrapper-dca {
+    width: 6.8rem;
+    height: 6.8rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: $button-color-main;
+    text-align: center;
+    border-radius: 50%;
+    margin-top: -2rem;
+  }
+
+  &__icon-title {
+    color: $font-color-secondary;
+    font-size: 1.3rem;
+  }
+
+  &__logo-bold {
+    margin: 0;
+    font-family: "montserrat-extrabold";
+    font-style: italic;
+    font-size: 1.6rem;
+    color: $font-color-secondary;
+  }
+  &__logo-italic {
+    margin: 0;
+    font-family: "montserrat-light";
+    font-size: 1.6rem;
+    color: $font-color-secondary;
+  }
+}

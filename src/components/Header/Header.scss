@@ -4,7 +4,8 @@
 @use "../../styles/_partials/_utilities/variables" as *;
 
 .header {
-  display: fixed;
+  position: fixed;
+  width: 100%;
 
   &__container {
     display: flex;
@@ -24,6 +25,7 @@
     font-size: 2.4rem;
     color: $font-color-secondary;
   }
+
   &__avatar-icon {
     width: 3.6rem;
     height: 3.6rem;

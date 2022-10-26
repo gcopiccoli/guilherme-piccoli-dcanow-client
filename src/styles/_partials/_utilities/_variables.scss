@@ -8,11 +8,16 @@ $background-color-primary: #f8f9fa;
 $background-color-secondary: #004e98;
 
 //SUPPORTIVE COLORS
-$button-color-main: #ff6700;
+$button-color-main: #ee6c4d;
 $button-color-second: #ebebeb;
 $border-color: #c0c0c0;
 $support-color-primary: #3a6ea5;
 $support-color-secondary: #c94515;
+$gradient-color: linear-gradient(
+  135deg,
+  hsla(209, 100%, 30%, 1) 0%,
+  hsla(202, 46%, 67%, 1) 100%
+);
 
 //BORDER
 $border-setup: 1px solid $border-color;
