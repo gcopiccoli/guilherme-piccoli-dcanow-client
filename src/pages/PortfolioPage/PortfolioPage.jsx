@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 import api_url_stocks from "../../utilities/api";
 import AddPositions from "../../components/AddPositions/AddPositions";
 import CurrentPositions from "../../components/CurrentPositions/CurrentPositions";
+import Loader from "../../components/Loader/Loader";
 import "./PortfolioPage.scss";
-import { useEffect } from "react";
 
 const PortfolioPage = () => {
   const [stockData, setStockData] = useState([]);
@@ -24,8 +25,8 @@ const PortfolioPage = () => {
   return (
     <section className="portfolio-page">
       <h2 className="portfolio-page__title">Portfolio</h2>
-      <AddPositions />
-      <CurrentPositions />
+      <AddPositions stockData={stockData} />
+      <CurrentPositions stockData={stockData} />
     </section>
   );
 };

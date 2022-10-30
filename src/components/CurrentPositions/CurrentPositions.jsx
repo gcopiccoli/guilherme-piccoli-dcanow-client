@@ -1,6 +1,6 @@
 import "./CurrentPositions.scss";
 
-const CurrentPositions = (props) => {
+const CurrentPositions = ({ stockData }) => {
   return (
     <section className="positions">
       <h3 className="positions__title">Current Positions</h3>
@@ -10,19 +10,19 @@ const CurrentPositions = (props) => {
             <p htmlFor="" className="positions__label">
               Stock
             </p>
-            <p className="positions__data">AAPL</p>
+            <p className="positions__data">{stockData.symbol}</p>
           </div>
           <div className="positions__box">
             <p htmlFor="" className="positions__label">
               Name
             </p>
-            <p className="positions__data">Apple Inc.</p>
+            <p className="positions__data">{stockData.name}</p>
           </div>
           <div className="positions__box">
             <p htmlFor="" className="positions__label">
               Price
             </p>
-            <p className="positions__data">172.19</p>
+            <p className="positions__data">{stockData.price}</p>
           </div>
         </div>
         <div className="positions__wrapper">
