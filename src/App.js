@@ -1,6 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Footer from "./components/Footer/Footer";
+
 import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+
 import HomePage from "./pages/HomePage/HomePage";
 import PortfolioPage from "./pages/PortfolioPage/PortfolioPage";
 import DcaPage from "./pages/DcaPage/DcaPage";
@@ -14,16 +16,16 @@ function App() {
     <>
       <BrowserRouter>
         <Header />
-        <main>
-          <Routes>
-            <Route path="/" element={<HomePage />}></Route>
-            <Route path="/home" element={<HomePage />}></Route>
-            <Route path="/porfolio/:id" element={<PortfolioPage />}></Route>
-            <Route path="/dca/:id" element={<DcaPage />}></Route>
-            <Route path="/about" element={<AboutPage />}></Route>
-            <Route path="/more" element={<MorePage />}></Route>
-          </Routes>
-        </main>
+        {/* <main> */}
+        <Routes>
+          <Route path="/" element={<HomePage />}></Route>
+          <Route path="/home" element={<HomePage />}></Route>
+          <Route path="/portfolio/:id" element={<PortfolioPage />}></Route>
+          <Route path="/dca/:id" element={<DcaPage />}></Route>
+          <Route path="/about" element={<AboutPage />}></Route>
+          <Route path="/more" element={<MorePage />}></Route>
+        </Routes>
+        {/* </main> */}
         <Footer />
       </BrowserRouter>
     </>

@@ -1,0 +1,48 @@
+@use "../../styles/_partials/_utilities/resets" as *;
+@use "../../styles/_partials/_utilities/typography" as *;
+@use "../../styles/_partials/_utilities/mixins" as *;
+@use "../../styles/_partials/_utilities/variables" as *;
+
+.positions {
+  margin: 0 1.6rem 1.6rem 1.6rem;
+
+  &__title {
+    margin-bottom: 1rem;
+  }
+
+  &__card,
+  &__box {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__card {
+    background-color: $background-color-secondary;
+    padding: 0 1rem;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid $border-color;
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__label {
+    color: $support-color-primary;
+    font-family: "montserrat-semibold";
+    font-size: 1.4rem;
+    text-align: center;
+    padding-bottom: 0.4rem;
+  }
+  &__data {
+    color: $font-color-secondary;
+    text-align: center;
+  }
+}

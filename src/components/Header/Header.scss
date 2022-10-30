@@ -4,7 +4,7 @@
 @use "../../styles/_partials/_utilities/variables" as *;
 
 .header {
-  position: fixed;
+  position: sticky;
   width: 100%;
 
   &__container {

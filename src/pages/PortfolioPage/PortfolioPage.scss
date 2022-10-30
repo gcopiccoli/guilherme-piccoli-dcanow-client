@@ -1,0 +1,19 @@
+@use "../../styles/_partials/_utilities/resets" as *;
+@use "../../styles/_partials/_utilities/typography" as *;
+@use "../../styles/_partials/_utilities/mixins" as *;
+@use "../../styles/_partials/_utilities/variables" as *;
+
+.portfolio-page {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  margin: 2.4rem 1.6rem;
+  box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+  border-radius: 1rem;
+  background-color: #fefcfb;
+
+  &__title {
+    font-family: "montserrat-semibold";
+    margin: 2.4rem 1.6rem 1.6rem 1.6rem;
+  }
+}

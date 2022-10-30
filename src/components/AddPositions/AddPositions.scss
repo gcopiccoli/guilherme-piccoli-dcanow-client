@@ -1,0 +1,83 @@
+@use "../../styles/_partials/_utilities/resets" as *;
+@use "../../styles/_partials/_utilities/typography" as *;
+@use "../../styles/_partials/_utilities/mixins" as *;
+@use "../../styles/_partials/_utilities/variables" as *;
+
+.add-form {
+  margin: 0 1.6rem 1.6rem 1.6rem;
+
+  &__title {
+    margin-bottom: 1rem;
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: -4rem;
+  }
+
+  &__search {
+    all: unset;
+    padding: 0.8rem 1.6rem;
+    border-radius: 4rem 0 0 4rem;
+    background-color: $button-color-second;
+    border: 1px solid $border-color;
+    width: 85%;
+  }
+
+  &__button {
+    all: unset;
+    padding: 0.8rem 0.8rem 0.8rem 1.6rem;
+    border-radius: 0 4rem 4rem 0;
+    background-color: $button-color-main;
+    width: 15%;
+    display: flex;
+    &:hover {
+      background-color: $support-color-secondary;
+    }
+  }
+
+  &__stock-info {
+    padding: 5rem 1.6rem 0 1.6rem;
+    background-color: $border-color;
+    border-radius: 2rem;
+  }
+
+  &__wrapper {
+    padding: 0.8rem 0;
+    border-top: 1px solid $button-color-second;
+  }
+
+  &__container-input {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 0.8rem;
+  }
+
+  &__box,
+  &__box-data {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__box-data {
+    width: 45%;
+  }
+
+  &__label {
+    color: $support-color-primary;
+    font-family: "montserrat-semibold";
+    font-size: 1.4rem;
+    padding-bottom: 0.4rem;
+  }
+
+  &__input {
+    all: unset;
+    padding: 0.8rem 1.6rem;
+    font-family: "montserrat-regular";
+    font-size: 1.6rem;
+    border-radius: 5rem;
+    background-color: $button-color-second;
+  }
+}
