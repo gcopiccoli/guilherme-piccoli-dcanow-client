@@ -80,4 +80,9 @@
     border-radius: 5rem;
     background-color: $button-color-second;
   }
+
+  &__button-add {
+    display: flex;
+    margin: 0 auto;
+  }
 }

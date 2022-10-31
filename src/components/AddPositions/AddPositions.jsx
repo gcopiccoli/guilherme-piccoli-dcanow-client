@@ -1,8 +1,19 @@
 import searchIcon from "../../assets/icons/search-icon.svg";
-
 import "./AddPositions.scss";
 
 const AddPositions = () => {
+  // let stocks = [];
+
+  // const handleAddStock = (e) => {
+  //   e.preventDefault();
+
+  //   let searchTerm = e.target.searchStock.value
+
+  //   const searchedStock = stocks.filter((stock) => {
+  //     return stock.name === `${searchTerm}`;
+  //   })
+  // }
+
   return (
     <nav className="add-form">
       <h3 className="add-form__title">Add new position</h3>
@@ -100,6 +111,9 @@ const AddPositions = () => {
           </article>
         </div>
       </form>
+      <div className="add-form__button-add">
+        <p className="add-form__button-text">+ Add stock</p>
+      </div>
     </nav>
   );
 };

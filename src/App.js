@@ -20,8 +20,11 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />}></Route>
           <Route path="/home" element={<HomePage />}></Route>
-          <Route path="/portfolio/:id" element={<PortfolioPage />}></Route>
-          <Route path="/dca/:id" element={<DcaPage />}></Route>
+          <Route
+            path="/:userId/positions/all"
+            element={<PortfolioPage />}
+          ></Route>
+          <Route path="/:userId/dca/all" element={<DcaPage />}></Route>
           <Route path="/about" element={<AboutPage />}></Route>
           <Route path="/more" element={<MorePage />}></Route>
         </Routes>

@@ -31,12 +31,12 @@ const Footer = () => {
         </article>
         <article
           className={
-            splitLocation[1] === "portfolio"
+            splitLocation[1] === ":userId"
               ? "footer__wrapper--active"
               : "footer__wrapper"
           }
         >
-          <Link className="footer__link" to="/portfolio/:id">
+          <Link className="footer__link" to="/:userId/positions/all">
             <img
               src={portfolioIcon}
               alt="Wallet icon"
@@ -46,7 +46,7 @@ const Footer = () => {
           </Link>
         </article>
         <article className="footer__wrapper-dca">
-          <Link className="footer__link" to="/dca/:id">
+          <Link className="footer__link" to="/:userId/dca/all">
             <p className="footer__icon-title">
               <span className="footer__logo-bold">DCA</span>
               <br />
