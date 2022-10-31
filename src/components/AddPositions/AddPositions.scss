@@ -4,7 +4,7 @@
 @use "../../styles/_partials/_utilities/variables" as *;
 
 .add-form {
-  margin: 0 1.6rem 1.6rem 1.6rem;
+  margin: 0 1.6rem;
 
   &__title {
     margin-bottom: 1rem;
@@ -38,13 +38,13 @@
   }
 
   &__stock-info {
-    padding: 5rem 1.6rem 0 1.6rem;
+    padding: 5rem 0 0rem 0;
     background-color: $border-color;
     border-radius: 2rem;
   }
 
   &__wrapper {
-    padding: 0.8rem 0;
+    padding: 0.8rem 0 0 0;
     border-top: 1px solid $button-color-second;
   }
 
@@ -52,6 +52,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    padding: 0 1.6rem 0 1.6rem;
     margin-bottom: 0.8rem;
   }
 
@@ -76,13 +77,27 @@
     all: unset;
     padding: 0.8rem 1.6rem;
     font-family: "montserrat-regular";
-    font-size: 1.6rem;
-    border-radius: 5rem;
+    font-size: 1.4rem;
+    border-radius: 0.5rem;
     background-color: $button-color-second;
   }
 
   &__button-add {
     display: flex;
-    margin: 0 auto;
+    align-items: center;
+  }
+
+  &__button-text {
+    width: 100%;
+    text-align: center;
+    margin: 0.8rem auto 0 auto;
+    padding: 0.8rem 1.6rem;
+    background-color: $support-color-primary;
+    border-radius: 0 0 2rem 2rem;
+    color: white;
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
   }
 }

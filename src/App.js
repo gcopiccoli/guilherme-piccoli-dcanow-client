@@ -16,19 +16,19 @@ function App() {
     <>
       <BrowserRouter>
         <Header />
-        {/* <main> */}
-        <Routes>
-          <Route path="/" element={<HomePage />}></Route>
-          <Route path="/home" element={<HomePage />}></Route>
-          <Route
-            path="/:userId/positions/all"
-            element={<PortfolioPage />}
-          ></Route>
-          <Route path="/:userId/dca/all" element={<DcaPage />}></Route>
-          <Route path="/about" element={<AboutPage />}></Route>
-          <Route path="/more" element={<MorePage />}></Route>
-        </Routes>
-        {/* </main> */}
+        <main>
+          <Routes>
+            <Route path="/" element={<HomePage />}></Route>
+            <Route path="/home" element={<HomePage />}></Route>
+            <Route
+              path="/:userId/positions/all"
+              element={<PortfolioPage />}
+            ></Route>
+            <Route path="/:userId/dca/all" element={<DcaPage />}></Route>
+            <Route path="/about" element={<AboutPage />}></Route>
+            <Route path="/more" element={<MorePage />}></Route>
+          </Routes>
+        </main>
         <Footer />
       </BrowserRouter>
     </>

@@ -4,7 +4,7 @@
 @use "../../styles/_partials/_utilities/variables" as *;
 
 .positions {
-  margin: 0 1.6rem 1.6rem 1.6rem;
+  margin: 3.2rem 1.6rem 1.6rem 1.6rem;
 
   &__title {
     margin-bottom: 1rem;
@@ -41,6 +41,7 @@
     text-align: center;
     padding-bottom: 0.4rem;
   }
+
   &__data {
     color: $font-color-secondary;
     text-align: center;
