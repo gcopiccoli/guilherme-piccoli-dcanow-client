@@ -28,18 +28,13 @@ const PortfolioPage = () => {
 
   const getStockData = async () => {
     const { data } = await axios.get(api_url_stocks);
-
-    // prepare array for state
-
     setStockData(data);
-    // console.log(stockData[1].name);
   };
 
   const getUserPositions = async () => {
     try {
       const { data: firstData } = await getPositions(userId);
       setUserPositions(firstData);
-      // console.log(firstData);
     } catch (err) {
       console.log(err);
     }
@@ -52,8 +47,8 @@ const PortfolioPage = () => {
     console.log(positionData);
     setStockData(stockData.data);
     const combinedData = positionData.data.map((position) => {
-      let stockName = "hello";
-      let stockPrice = 35;
+      let stockName = null;
+      let stockPrice = null;
       stockData.data.forEach((stock) => {
         if (stock.symbol === position.stock_symbol) {
           stockName = stock.name;
@@ -67,7 +62,7 @@ const PortfolioPage = () => {
         initial_value_invested: position.initial_value_invested,
         quantity: position.quantity,
         average_price: position.average_price,
-        // include other key value pairs from position
+
         name: stockName,
         price: stockPrice,
       };
@@ -75,21 +70,6 @@ const PortfolioPage = () => {
     });
     setUserPositions(combinedData);
   };
-
-  // const combinedData = positions.map((position) => {
-  //   let stockName = null;
-  //   stocks.forEach((stock) => {
-  //     if (stock.symbol === position.symbol) {
-  //       stockName = stock.name;
-  //     }
-  //   });
-  //   const combinedStockData = {
-  //     symbol: position.symbol,
-  //     price: position.price,
-  //     name: stockName,
-  //   };
-  //   return combinedStockData;
-  // });
 
   useEffect(() => {
     getStockData();
@@ -108,9 +88,6 @@ const PortfolioPage = () => {
   if (!userPositions) {
     return <Loader />;
   }
-
-  // console.log("here", selectedStock);
-  // console.log("stockdata", stockData);
 
   return (
     <section className="portfolio-page">
