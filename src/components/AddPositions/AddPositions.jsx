@@ -71,6 +71,7 @@ const AddPositions = ({ handleAddStock, selectedStock }) => {
                   Rank
                 </label>
                 <select className="add-form__input" id="rank" name="rank">
+                  <option value="1">Select option</option>
                   <option value="1">1</option>
                   <option value="1">2</option>
                   <option value="1">3</option>

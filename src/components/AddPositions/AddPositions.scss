@@ -14,6 +14,7 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: -4rem;
+    z-index: 1;
   }
 
   &__search {
@@ -41,18 +42,18 @@
     padding: 5rem 0 0rem 0;
     background-color: $border-color;
     border-radius: 2rem;
-    animation: fade-in-down 2s ease;
+    // animation: fade-in-down 0.5s ease;
   }
-  @keyframes fade-in-down {
-    0% {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+  // @keyframes fade-in-down {
+  //   0% {
+  //     opacity: 0;
+  //     transform: translateY(-20px);
+  //   }
+  //   100% {
+  //     opacity: 1;
+  //     transform: translateY(0);
+  //   }
+  // }
 
   &__wrapper {
     padding: 0.8rem 0 0 0;

@@ -1,0 +1,50 @@
+@use "../../styles/_partials/_utilities/resets" as *;
+@use "../../styles/_partials/_utilities/typography" as *;
+@use "../../styles/_partials/_utilities/mixins" as *;
+@use "../../styles/_partials/_utilities/variables" as *;
+
+.dca-page {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  margin: 2.4rem 1.6rem 8.6rem 1.6rem;
+  box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+  border-radius: 1rem;
+  background-color: #fefcfb;
+
+  &__title {
+    font-family: "montserrat-semibold";
+    margin: 2.4rem 1.6rem 1.6rem 1.6rem;
+  }
+
+  &__value-input {
+    display: flex;
+    padding: 0 1.6rem 2.4rem 1.6rem;
+  }
+
+  &__input,
+  &__button {
+    all: unset;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 1rem;
+    border-bottom: 2px solid $support-color-primary;
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    padding: 0 1.6rem;
+    text-align: center;
+    font-size: 2.4rem;
+    margin-left: 1.6rem;
+    border-radius: 5rem;
+    background-color: $button-color-main;
+    color: $font-color-secondary;
+    &:hover {
+      background-color: $support-color-secondary;
+    }
+  }
+}
