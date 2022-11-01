@@ -53,13 +53,29 @@ const CurrentPositions = ({ stockData, positions }) => {
           <p htmlFor="" className="positions__label">
             %
           </p>
-          <p className="positions__data">{Math.round(investmentRatio)} %</p>
+          <p
+            className={`positions__data ${
+              investmentRatio > 0
+                ? "positions__data--positive"
+                : "positions__data--negative"
+            }`}
+          >
+            {Math.round(investmentRatio)}%
+          </p>
         </div>
         <div className="positions__box">
           <p htmlFor="" className="positions__label">
             P/L
           </p>
-          <p className="positions__data">$ {Math.round(investmentPandL)}</p>
+          <p
+            className={`positions__data ${
+              investmentRatio > 0
+                ? "positions__data--positive"
+                : "positions__data--negative"
+            }`}
+          >
+            $ {Math.round(investmentPandL)}
+          </p>
         </div>
       </div>
       <div className="positions__wrapper">

@@ -43,7 +43,19 @@
   }
 
   &__data {
+    padding: 0.2rem;
     color: $font-color-secondary;
     text-align: center;
+    border-radius: 0.5rem;
+  }
+
+  &__data--positive {
+    color: $support-color-quartiary;
+    background-color: rgba(21, 132, 99, 0.3);
+  }
+
+  &__data--negative {
+    color: $support-color-tertiary;
+    background-color: rgba(201, 69, 21, 0.3);
   }
 }
