@@ -3,11 +3,21 @@ import editIcon from "../../assets/icons/edit-icon.svg";
 import deleteIcon from "../../assets/icons/delete-icon.svg";
 import Loader from "../Loader/Loader";
 
-const CurrentPositions = ({ stockData, positions }) => {
+const CurrentPositions = ({
+  stockData,
+  positions,
+  setIsOpen,
+  setPositionToDelete,
+}) => {
   let currentInvestment = positions.quantity * positions.price;
   let investmentRatio =
     (currentInvestment / positions.initial_value_invested) * 100 - 100;
   let investmentPandL = currentInvestment - positions.initial_value_invested;
+
+  const deleteHandler = () => {
+    setIsOpen(true);
+    setPositionToDelete(positions);
+  };
 
   if (!positions) {
     return <Loader />;
@@ -81,6 +91,7 @@ const CurrentPositions = ({ stockData, positions }) => {
       <div className="positions__wrapper">
         <img src={editIcon} alt="Edit icon" className="positions__edit-icon" />
         <img
+          onClick={deleteHandler}
           src={deleteIcon}
           alt="Edit icon"
           className="positions__delete-icon"

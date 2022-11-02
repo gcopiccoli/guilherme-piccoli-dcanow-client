@@ -22,6 +22,7 @@ function App() {
   const [stockData, setStockData] = useState([]);
   const [userPositions, setUserPositions] = useState(null);
   const [selectedStock, setSelectedStock] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
 
   let userId = 1;
 
@@ -78,6 +79,10 @@ function App() {
   };
 
   useEffect(() => {
+    populateState();
+  }, [isOpen]);
+
+  useEffect(() => {
     getStockData();
     getUserPositions();
     populateState();
@@ -111,6 +116,8 @@ function App() {
                   handleAddStock={handleAddStock}
                   selectedStock={selectedStock}
                   stockData={stockData}
+                  isOpen={isOpen}
+                  setIsOpen={setIsOpen}
                 />
               }
             ></Route>
