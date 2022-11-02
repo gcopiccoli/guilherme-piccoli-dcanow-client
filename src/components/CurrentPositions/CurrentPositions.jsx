@@ -16,43 +16,31 @@ const CurrentPositions = ({ stockData, positions }) => {
     <article className="positions__card">
       <div className="positions__wrapper">
         <div className="positions__box">
-          <p htmlFor="" className="positions__label">
-            Stock
-          </p>
+          <p className="positions__label">Ticker</p>
           <p className="positions__data">{positions.stock_symbol}</p>
         </div>
         <div className="positions__box">
-          <p htmlFor="" className="positions__label">
-            Name
-          </p>
+          <p className="positions__label">Name</p>
           <p className="positions__data">{positions.name}</p>
         </div>
         <div className="positions__box">
-          <p htmlFor="" className="positions__label">
-            Price
-          </p>
+          <p className="positions__label">Price</p>
           <p className="positions__data">$ {positions.price}</p>
         </div>
       </div>
       <div className="positions__wrapper">
         <div className="positions__box">
-          <p htmlFor="" className="positions__label">
-            Initial Inv.
-          </p>
+          <p className="positions__label">Initial Inv.</p>
           <p className="positions__data">
             $ {positions.initial_value_invested}
           </p>
         </div>
         <div className="positions__box">
-          <p htmlFor="" className="positions__label">
-            Current Inv.
-          </p>
+          <p className="positions__label">Current Inv.</p>
           <p className="positions__data">$ {Math.round(currentInvestment)}</p>
         </div>
         <div className="positions__box">
-          <p htmlFor="" className="positions__label">
-            %
-          </p>
+          <p className="positions__label">%</p>
           <p
             className={`positions__data ${
               investmentRatio > 0
@@ -64,9 +52,7 @@ const CurrentPositions = ({ stockData, positions }) => {
           </p>
         </div>
         <div className="positions__box">
-          <p htmlFor="" className="positions__label">
-            P/L
-          </p>
+          <p className="positions__label">P/L</p>
           <p
             className={`positions__data ${
               investmentRatio > 0
@@ -80,21 +66,15 @@ const CurrentPositions = ({ stockData, positions }) => {
       </div>
       <div className="positions__wrapper">
         <div className="positions__box">
-          <p htmlFor="" className="positions__label">
-            Rank
-          </p>
+          <p className="positions__label">Rank</p>
           <p className="positions__data">{positions.stock_rank}</p>
         </div>
         <div className="positions__box">
-          <p htmlFor="" className="positions__label">
-            Quantity
-          </p>
+          <p className="positions__label">Quantity</p>
           <p className="positions__data">{positions.quantity}</p>
         </div>
         <div className="positions__box">
-          <p htmlFor="" className="positions__label">
-            Avg. Price
-          </p>
+          <p className="positions__label">Avg. Price</p>
           <p className="positions__data">$ {positions.average_price}</p>
         </div>
       </div>
