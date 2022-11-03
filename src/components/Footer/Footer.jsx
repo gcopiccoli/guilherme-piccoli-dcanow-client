@@ -5,7 +5,7 @@ import aboutIcon from "../../assets/icons/globe-icon.svg";
 import moreIcon from "../../assets/icons/more-icon.svg";
 import { Link, useLocation } from "react-router-dom";
 
-const Footer = () => {
+const Footer = ({ userId }) => {
   const location = useLocation();
   const { pathname } = location;
   const splitLocation = pathname.split("/");
@@ -36,7 +36,7 @@ const Footer = () => {
               : "footer__wrapper"
           }
         >
-          <Link className="footer__link" to="/:userId/positions/all">
+          <Link className="footer__link" to={`/${userId}/positions/all`}>
             <img
               src={portfolioIcon}
               alt="Wallet icon"

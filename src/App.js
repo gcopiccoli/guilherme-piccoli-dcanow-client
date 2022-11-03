@@ -26,6 +26,7 @@ function App() {
   const [isEditOpen, setIsEditOpen] = useState(null);
   const [loading, setLoading] = useState(false);
 
+  // Todo: Make dynamic via firebase
   let userId = 1;
 
   const handleAddStock = (e, searchTerm) => {
@@ -152,7 +153,7 @@ function App() {
             <Route path="/more" element={<MorePage />}></Route>
           </Routes>
         </main>
-        <Footer />
+        <Footer userId={userId} />
       </BrowserRouter>
     </>
   );

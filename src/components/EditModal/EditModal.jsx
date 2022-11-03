@@ -1,15 +1,52 @@
+import { useState } from "react";
 import closeIcon from "../../assets/icons/close-icon-dark.svg";
 import axios from "axios";
 import "./EditModal.scss";
+import { useEffect } from "react";
 
 const EditModal = ({ open, onClose, positionToEdit }) => {
+  // Some state for the position data
+  // Note: on page load, the API call to our backend hasn't finished
+  // therefore the `positionToEdit` prop is empty
+  const [formData, setFormData] = useState({});
+
+  // When the `positionToEdit` prop is filled from the API call
+  useEffect(() => {
+    // Set the state with the filled values
+    setFormData(positionToEdit);
+  }, [positionToEdit]); // will run every time the `positionToEdit` prop changes
+
   if (!open) return null;
+
+  // Todo: Use dynamic user ID (from firebase?)
   let userId = 1;
 
-  const editHandler = async () => {
+  // Update the state (but only the changed value)
+  const handleChange = (e) => {
+    const value = e.target.value;
+
+    setFormData({
+      ...formData,
+      [e.target.name]: +value,
+    });
+  };
+
+  // Sends patch request to backend
+  const editHandler = async (e) => {
+    e.preventDefault();
+
+    // Copy the form data, and remove the key/value pairs we don't need
+    const copiedFormData = { ...formData };
+    delete copiedFormData["name"];
+    delete copiedFormData["price"];
+
+    // TODO: put root of domain in .env varable
     await axios.patch(
-      `http://localhost:8084/${userId}/positions/${positionToEdit.id}/update`
+      `http://localhost:8084/${userId}/positions/${positionToEdit.id}/update`,
+      copiedFormData
     );
+
+    onClose();
   };
 
   return (
@@ -28,7 +65,7 @@ const EditModal = ({ open, onClose, positionToEdit }) => {
               </div>
             </div>
             <div className="modal-edit__positions">
-              <form onSubmit={editHandler} className="modal-edit__stock-info">
+              <form className="modal-edit__stock-info">
                 <article className="modal-edit__container-input">
                   <div className="modal-edit__box">
                     <label htmlFor="" className="modal-edit__label">
@@ -54,13 +91,14 @@ const EditModal = ({ open, onClose, positionToEdit }) => {
                 <div className="modal-edit__wrapper">
                   <article className="modal-edit__container-input">
                     <div className="modal-edit__box-data">
-                      <label htmlFor="" className="modal-edit__label">
+                      <label htmlFor="stock_rank" className="modal-edit__label">
                         Rank
                       </label>
                       <select
+                        onChange={handleChange}
                         className="modal-edit__input modal-edit__input-rank"
-                        id="rank"
-                        name="rank"
+                        id="stock_rank"
+                        name="stock_rank"
                       >
                         <option value={positionToEdit.stock_rank}>
                           {positionToEdit.stock_rank}
@@ -78,28 +116,36 @@ const EditModal = ({ open, onClose, positionToEdit }) => {
                       </select>
                     </div>
                     <div className="modal-edit__box-data">
-                      <label htmlFor="" className="modal-edit__label">
+                      <label
+                        htmlFor="initial_value_invested"
+                        className="modal-edit__label"
+                      >
                         Value Invested
                       </label>
                       <input
                         type="number"
                         className="modal-edit__input"
-                        id="valueInvested"
-                        name="valueInvested"
+                        id="initial_value_invested"
+                        name="initial_value_invested"
+                        onChange={handleChange}
                         defaultValue={positionToEdit.initial_value_invested}
                       />
                     </div>
                   </article>
                   <article className="modal-edit__container-input">
                     <div className="modal-edit__box-data">
-                      <label htmlFor="" className="modal-edit__label">
+                      <label
+                        htmlFor="average_price"
+                        className="modal-edit__label"
+                      >
                         Average Price
                       </label>
                       <input
                         type="number"
                         className="modal-edit__input"
-                        id="averagePrice"
-                        name="averagePrice"
+                        id="average_price"
+                        name="average_price"
+                        onChange={handleChange}
                         defaultValue={positionToEdit.average_price}
                       />
                     </div>
@@ -112,6 +158,7 @@ const EditModal = ({ open, onClose, positionToEdit }) => {
                         className="modal-edit__input"
                         id="quantity"
                         name="quantity"
+                        onChange={handleChange}
                         defaultValue={positionToEdit.quantity}
                       />
                     </div>
