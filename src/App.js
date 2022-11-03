@@ -23,6 +23,7 @@ function App() {
   const [userPositions, setUserPositions] = useState(null);
   const [selectedStock, setSelectedStock] = useState(null);
   const [isOpen, setIsOpen] = useState(null);
+  const [isEditOpen, setIsEditOpen] = useState(null);
   const [loading, setLoading] = useState(false);
 
   let userId = 1;
@@ -96,6 +97,12 @@ function App() {
   }, [isOpen]);
 
   useEffect(() => {
+    if (isEditOpen === false) {
+      populateState();
+    }
+  }, [isEditOpen]);
+
+  useEffect(() => {
     // getStockData();
     getUserPositions();
     populateState();
@@ -131,6 +138,8 @@ function App() {
                   stockData={stockData}
                   isOpen={isOpen}
                   setIsOpen={setIsOpen}
+                  isEditOpen={isEditOpen}
+                  setIsEditOpen={setIsEditOpen}
                   loading={loading}
                 />
               }

@@ -3,45 +3,47 @@
 @use "../../styles/_partials/_utilities/mixins" as *;
 @use "../../styles/_partials/_utilities/variables" as *;
 
-.add-form {
-  margin: 0 1.6rem;
-
-  &__title {
-    color: $font-color-secondary;
-    margin-bottom: 1rem;
-  }
+.modal-edit {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  background-color: rgba($background-color-secondary, 0.5);
 
   &__container {
     display: flex;
-    justify-content: space-between;
-
-    z-index: 3;
+    flex-direction: column;
   }
 
-  &__search {
-    all: unset;
-    padding: 0.8rem;
-    border-radius: 0.5rem 0 0 0.5rem;
-    background-color: $button-color-second;
-    border-bottom: 4px solid $border-color;
-    width: 85%;
+  &__edit {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    padding: 1rem;
+    background-color: $background-color-primary;
+    height: 48vh;
+    width: 86vw;
+    border-radius: 1rem;
   }
 
-  &__button {
-    all: unset;
-    padding: 0.8rem 0.8rem 0.8rem 0.8rem;
-    border-radius: 0 0.5rem 0.5rem 0;
-    background-color: $support-color-primary;
-    border-bottom: 4px solid #1282a2;
-    width: 15%;
+  &__image {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
+  }
+
+  &__copy {
+    padding: 1.6rem 0;
   }
 
   &__stock-info {
-    padding-top: 2.4rem;
-    border-radius: 0 0 2rem 2rem;
-    background-color: $background-color-secondary;
+    padding: 2.4rem 0 0.8rem 0;
+    border-radius: 1rem;
+    background-color: $background-color-primary;
+    box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.2);
   }
 
   &__wrapper {
@@ -76,10 +78,6 @@
     padding-bottom: 0.4rem;
   }
 
-  &__data {
-    color: $font-color-secondary;
-  }
-
   &__input,
   &__input-rank {
     all: unset;
@@ -101,24 +99,27 @@
     background-image: url("../../assets/icons/down-icon-dark.svg");
   }
 
-  &__button-add {
+  &__button-cancel {
     all: unset;
-    width: 100%;
-    display: flex;
-    align-items: center;
+    width: 10rem;
+    text-align: center;
+    border-radius: 2rem;
+    transition: 0.5s;
+    border-bottom: 4px solid $border-color;
+    background-color: #ebebeb;
+    padding: 1rem 1.6rem;
   }
 
-  &__button-text {
-    width: 100%;
+  &__button-edit {
+    all: unset;
+    width: 10rem;
+    border-radius: 2rem;
     text-align: center;
-    margin: 0.8rem auto 0 auto;
-    padding: 0.8rem 1.6rem;
+    padding: 1rem 1.6rem;
+    transition: 0.5s;
     background-color: $support-color-primary;
-    border-radius: 0 0 2rem 2rem;
-    color: white;
-    &:hover {
-      cursor: pointer;
-      text-decoration: underline;
-    }
+    border-bottom: 4px solid #1282a2;
+    color: $font-color-secondary;
+    margin-left: 1.6rem;
   }
 }
