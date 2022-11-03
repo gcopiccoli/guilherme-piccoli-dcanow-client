@@ -4,10 +4,11 @@ import searchIcon from "../../assets/icons/search-icon.svg";
 import "./AddPositions.scss";
 import { useNavigate } from "react-router-dom";
 
-const AddPositions = ({ handleAddStock, selectedStock }) => {
+const AddPositions = ({ handleAddStock, selectedStock, getUserPositions }) => {
   // const [stocks, setStocks] = useState(null);
 
   const [searchTerm, setSearchTerm] = useState("");
+  const [formData, setFormData] = useState({});
 
   const navigate = useNavigate();
 
@@ -21,27 +22,36 @@ const AddPositions = ({ handleAddStock, selectedStock }) => {
   //   // in req.body, package form fields
   // };
 
+  const handleChange = (e) => {
+    const value = e.target.value;
+
+    setFormData({
+      ...formData,
+      [e.target.name]: +value,
+    });
+  };
+
   const addPositionHandler = async (e) => {
     e.preventDefault();
 
     console.log("test");
 
-    const formData = e.target;
+    console.log({ ...formData, stock_symbol: searchTerm });
 
-    const newPosition = {
-      rank: formData.rank.value,
-      valueInvested: formData.valueInvested.value,
-      averagePrice: formData.averagePrice.value,
-      quantity: formData.quantity.value,
-    };
+    await axios.post(`http://localhost:8084/${userId}/positions/add`, {
+      ...formData,
+      stock_symbol: searchTerm,
+    });
 
-    await axios.post(`http://localhost:8084/${userId}/positions/add`);
+    console.log(formData);
+    getUserPositions();
+    setSearchTerm("");
+    // e.target.reset();
 
-    formData.reset();
-
-    navigate("/:userId/positions/all");
+    // navigate(`/${userId}/positions/all`);
   };
 
+  console.log(formData);
   // if (!selectedStock) {
   //   return <h1>Loading...</h1>;
   // }
@@ -56,6 +66,7 @@ const AddPositions = ({ handleAddStock, selectedStock }) => {
             className="add-form__search"
             id="search"
             name="search"
+            value={searchTerm}
             placeholder="Search stock"
             onChange={(e) => setSearchTerm(e.target.value)}
           />
@@ -73,34 +84,29 @@ const AddPositions = ({ handleAddStock, selectedStock }) => {
         <form onSubmit={addPositionHandler} className="add-form__stock-info">
           <article className="add-form__container-input">
             <div className="add-form__box">
-              <label htmlFor="" className="add-form__label">
-                Symbol
-              </label>
+              <p className="add-form__label">Symbol</p>
               <p className="add-form__data"> {selectedStock.symbol}</p>
             </div>
             <div className="add-form__box">
-              <label htmlFor="" className="add-form__label">
-                Name
-              </label>
+              <p className="add-form__label">Name</p>
               <p className="add-form__data">{selectedStock.name}</p>
             </div>
             <div className="add-form__box">
-              <label htmlFor="" className="add-form__label">
-                Price
-              </label>
+              <p className="add-form__label">Price</p>
               <p className="add-form__data">$ {selectedStock.price}</p>
             </div>
           </article>
           <div className="add-form__wrapper">
             <article className="add-form__container-input">
               <div className="add-form__box-data">
-                <label htmlFor="" className="add-form__label">
+                <label htmlFor="stock_rank" className="add-form__label">
                   Rank
                 </label>
                 <select
                   className="add-form__input add-form__input-rank"
-                  id="rank"
-                  name="rank"
+                  id="stock_rank"
+                  name="stock_rank"
+                  onChange={handleChange}
                 >
                   <option value="Select option">Select option</option>
                   <option value="1">1</option>
@@ -116,14 +122,18 @@ const AddPositions = ({ handleAddStock, selectedStock }) => {
                 </select>
               </div>
               <div className="add-form__box-data">
-                <label htmlFor="" className="add-form__label">
+                <label
+                  htmlFor="initial_value_invested"
+                  className="add-form__label"
+                >
                   Value Invested
                 </label>
                 <input
                   type="number"
                   className="add-form__input"
-                  id="valueInvested"
-                  name="valueInvested"
+                  id="initial_value_invested"
+                  name="initial_value_invested"
+                  onChange={handleChange}
                 />
               </div>
             </article>
@@ -135,12 +145,13 @@ const AddPositions = ({ handleAddStock, selectedStock }) => {
                 <input
                   type="number"
                   className="add-form__input"
-                  id="averagePrice"
-                  name="averagePrice"
+                  id="average_price"
+                  name="average_price"
+                  onChange={handleChange}
                 />
               </div>
               <div className="add-form__box-data">
-                <label htmlFor="" className="add-form__label">
+                <label htmlFor="quantity" className="add-form__label">
                   Quantity
                 </label>
                 <input
@@ -148,6 +159,7 @@ const AddPositions = ({ handleAddStock, selectedStock }) => {
                   className="add-form__input"
                   id="quantity"
                   name="quantity"
+                  onChange={handleChange}
                 />
               </div>
             </article>

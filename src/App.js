@@ -142,6 +142,7 @@ function App() {
                   isEditOpen={isEditOpen}
                   setIsEditOpen={setIsEditOpen}
                   loading={loading}
+                  getUserPositions={getUserPositions}
                 />
               }
             ></Route>

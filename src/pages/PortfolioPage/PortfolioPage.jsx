@@ -16,6 +16,7 @@ const PortfolioPage = ({
   isEditOpen,
   setIsEditOpen,
   loading,
+  getUserPositions,
 }) => {
   const [positionToDelete, setPositionToDelete] = useState({});
   const [positionToEdit, setPositionToEdit] = useState({});
@@ -27,6 +28,7 @@ const PortfolioPage = ({
         stockData={stockData}
         handleAddStock={handleAddStock}
         selectedStock={selectedStock}
+        getUserPositions={getUserPositions}
       />
       <section className="positions">
         <h3 className="positions__title">Current Positions</h3>
