@@ -7,53 +7,43 @@
   margin: 0 1.6rem;
 
   &__title {
+    color: $font-color-secondary;
     margin-bottom: 1rem;
   }
 
   &__container {
     display: flex;
     justify-content: space-between;
-    margin-bottom: -4rem;
-    z-index: 1;
+
+    z-index: 3;
   }
 
   &__search {
     all: unset;
-    padding: 0.8rem 1.6rem;
-    border-radius: 4rem 0 0 4rem;
+    padding: 0.8rem;
+    border-radius: 0.5rem 0 0 0.5rem;
     background-color: $button-color-second;
-    border: 1px solid $border-color;
+    border-bottom: 4px solid $border-color;
     width: 85%;
   }
 
   &__button {
     all: unset;
-    padding: 0.8rem 0.8rem 0.8rem 1.6rem;
-    border-radius: 0 4rem 4rem 0;
-    background-color: $button-color-main;
+    padding: 0.8rem 0.8rem 0.8rem 0.8rem;
+    border-radius: 0 0.5rem 0.5rem 0;
+    background-color: $support-color-primary;
+    border-bottom: 4px solid #1282a2;
     width: 15%;
     display: flex;
-    &:hover {
-      background-color: $support-color-secondary;
-    }
+    justify-content: center;
   }
 
   &__stock-info {
-    padding: 5rem 0 0rem 0;
-    background-color: $border-color;
-    border-radius: 2rem;
-    // animation: fade-in-down 0.5s ease;
+    z-index: -1;
+    padding-top: 2.4rem;
+    background-color: $background-color-secondary;
+    border-radius: 0 0 2rem 2rem;
   }
-  // @keyframes fade-in-down {
-  //   0% {
-  //     opacity: 0;
-  //     transform: translateY(-20px);
-  //   }
-  //   100% {
-  //     opacity: 1;
-  //     transform: translateY(0);
-  //   }
-  // }
 
   &__wrapper {
     padding: 0.8rem 0 0 0;
@@ -68,13 +58,15 @@
     margin-bottom: 0.8rem;
   }
 
-  &__box,
-  &__box-data {
+  &__box {
     display: flex;
     flex-direction: column;
+    align-items: center;
   }
 
   &__box-data {
+    display: flex;
+    flex-direction: column;
     width: 45%;
   }
 
@@ -85,16 +77,34 @@
     padding-bottom: 0.4rem;
   }
 
-  &__input {
+  &__data {
+    color: $font-color-secondary;
+  }
+
+  &__input,
+  &__input-rank {
     all: unset;
-    padding: 0.8rem 1.6rem;
+    padding: 0.8rem 0.8rem;
     font-family: "montserrat-regular";
     font-size: 1.4rem;
     border-radius: 0.5rem;
     background-color: $button-color-second;
+    border-bottom: 4px solid $border-color;
+    background-repeat: no-repeat;
+    background-position: 94%;
+    background-size: 1.6rem;
+  }
+
+  &__input {
+    background-image: url("../../assets/icons/sort-icon-dark.svg");
+  }
+  &__input-rank {
+    background-image: url("../../assets/icons/down-icon-dark.svg");
   }
 
   &__button-add {
+    all: unset;
+    width: 100%;
     display: flex;
     align-items: center;
   }

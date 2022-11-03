@@ -10,6 +10,8 @@ const DeleteModal = ({ open, onClose, positionToDelete }) => {
     await axios.delete(
       `http://localhost:8084/${userId}/positions/${positionToDelete.id}/delete`
     );
+
+    onClose();
   };
 
   return (

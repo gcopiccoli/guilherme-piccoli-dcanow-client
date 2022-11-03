@@ -22,7 +22,8 @@ function App() {
   const [stockData, setStockData] = useState([]);
   const [userPositions, setUserPositions] = useState(null);
   const [selectedStock, setSelectedStock] = useState(null);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   let userId = 1;
 
@@ -35,10 +36,10 @@ function App() {
     setSelectedStock(searchedStock);
   };
 
-  const getStockData = async () => {
-    const { data } = await axios.get(api_url_stocks);
-    setStockData(data);
-  };
+  // const getStockData = async () => {
+  //   const { data } = await axios.get(api_url_stocks);
+  //   setStockData(data);
+  // };
 
   const getUserPositions = async () => {
     try {
@@ -50,7 +51,16 @@ function App() {
   };
 
   const populateState = async () => {
-    const stockData = await axios.get(api_url_stocks);
+    setLoading(true);
+
+    // Disabled temporarily to prevent running out of API credits
+    // const stockData = await axios.get(api_url_stocks);
+
+    // Enabled temporarily to simulate hitting the real API
+    const stockData = await axios.get("http://localhost:8084/test-data");
+
+    setLoading(false);
+
     let positionData = await getPositions(userId);
     setStockData(stockData.data);
     const combinedData = positionData.data.map((position) => {
@@ -78,12 +88,15 @@ function App() {
     setUserPositions(combinedData);
   };
 
+  // When the user closes the modal, get fresh data
   useEffect(() => {
-    populateState();
+    if (isOpen === false) {
+      populateState();
+    }
   }, [isOpen]);
 
   useEffect(() => {
-    getStockData();
+    // getStockData();
     getUserPositions();
     populateState();
   }, []);
@@ -118,6 +131,7 @@ function App() {
                   stockData={stockData}
                   isOpen={isOpen}
                   setIsOpen={setIsOpen}
+                  loading={loading}
                 />
               }
             ></Route>

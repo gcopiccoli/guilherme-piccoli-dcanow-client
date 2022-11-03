@@ -6,6 +6,8 @@
 .header {
   position: sticky;
   width: 100%;
+  background-color: $support-color-secondary;
+  top: 0;
 
   &__container {
     display: flex;

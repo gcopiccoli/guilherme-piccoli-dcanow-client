@@ -1,11 +1,17 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import axios from "axios";
 import searchIcon from "../../assets/icons/search-icon.svg";
 import "./AddPositions.scss";
+import { useNavigate } from "react-router-dom";
 
 const AddPositions = ({ handleAddStock, selectedStock }) => {
   // const [stocks, setStocks] = useState(null);
 
   const [searchTerm, setSearchTerm] = useState("");
+
+  const navigate = useNavigate();
+
+  let userId = 1;
   // if (!stocks) {
   //   return;
   // }
@@ -14,6 +20,27 @@ const AddPositions = ({ handleAddStock, selectedStock }) => {
   //   // make axios call here
   //   // in req.body, package form fields
   // };
+
+  const addPositionHandler = async (e) => {
+    e.preventDefault();
+
+    console.log("test");
+
+    const formData = e.target;
+
+    const newPosition = {
+      rank: formData.rank.value,
+      valueInvested: formData.valueInvested.value,
+      averagePrice: formData.averagePrice.value,
+      quantity: formData.quantity.value,
+    };
+
+    await axios.post(`http://localhost:8084/${userId}/positions/add`);
+
+    formData.reset();
+
+    navigate("/:userId/positions/all");
+  };
 
   // if (!selectedStock) {
   //   return <h1>Loading...</h1>;
@@ -43,7 +70,7 @@ const AddPositions = ({ handleAddStock, selectedStock }) => {
         </article>
       </form>
       {selectedStock && (
-        <form action="" className="add-form__stock-info">
+        <form onSubmit={addPositionHandler} className="add-form__stock-info">
           <article className="add-form__container-input">
             <div className="add-form__box">
               <label htmlFor="" className="add-form__label">
@@ -61,7 +88,7 @@ const AddPositions = ({ handleAddStock, selectedStock }) => {
               <label htmlFor="" className="add-form__label">
                 Price
               </label>
-              <p className="add-form__data"> {selectedStock.price}</p>
+              <p className="add-form__data">$ {selectedStock.price}</p>
             </div>
           </article>
           <div className="add-form__wrapper">
@@ -70,7 +97,11 @@ const AddPositions = ({ handleAddStock, selectedStock }) => {
                 <label htmlFor="" className="add-form__label">
                   Rank
                 </label>
-                <select className="add-form__input" id="rank" name="rank">
+                <select
+                  className="add-form__input add-form__input-rank"
+                  id="rank"
+                  name="rank"
+                >
                   <option value="1">Select option</option>
                   <option value="1">1</option>
                   <option value="1">2</option>
@@ -89,8 +120,8 @@ const AddPositions = ({ handleAddStock, selectedStock }) => {
                 <input
                   type="number"
                   className="add-form__input"
-                  id="initial-value-invested"
-                  name="initial-value-invested"
+                  id="valueInvested"
+                  name="valueInvested"
                 />
               </div>
             </article>
@@ -102,8 +133,8 @@ const AddPositions = ({ handleAddStock, selectedStock }) => {
                 <input
                   type="number"
                   className="add-form__input"
-                  id="average-price"
-                  name="average-price"
+                  id="averagePrice"
+                  name="averagePrice"
                 />
               </div>
               <div className="add-form__box-data">
@@ -119,9 +150,9 @@ const AddPositions = ({ handleAddStock, selectedStock }) => {
               </div>
             </article>
           </div>
-          <div className="add-form__button-add">
-            <p className="add-form__button-text">+ Add stock</p>
-          </div>
+          <button className="add-form__button-add">
+            <span className="add-form__button-text">+ Add stock</span>
+          </button>
         </form>
       )}
     </nav>
