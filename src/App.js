@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import api_url_stocks from "./utilities/api";
 import { getPositions } from "./utilities/api";
+// import { UserAuth } from "./context/AuthContext";
 
 import axios from "axios";
 
@@ -17,6 +18,9 @@ import MorePage from "./pages/MorePage/MorePage";
 import Loader from "./components/Loader/Loader";
 
 import "./App.scss";
+import LandingPage from "./pages/LandingPage/LandingPage";
+import SigninPage from "./pages/SigninPage/SigninPage";
+import { AuthContextProvider } from "./context/AuthContext";
 
 function App() {
   const [stockData, setStockData] = useState([]);
@@ -25,6 +29,7 @@ function App() {
   const [isOpen, setIsOpen] = useState(null);
   const [isEditOpen, setIsEditOpen] = useState(null);
   const [loading, setLoading] = useState(false);
+  // const { user } = UserAuth();
 
   // Todo: Make dynamic via firebase
   let userId = 1;
@@ -47,7 +52,7 @@ function App() {
     try {
       const { data: firstData } = await getPositions(userId);
       setUserPositions(firstData);
-      // firstData.sort((a, b) => (a.timestamp < b.timestamp ? 1 : -1));
+      firstData.sort((a, b) => (a.timestamp < b.timestamp ? 1 : -1));
     } catch (err) {
       console.log(err);
     }
@@ -65,7 +70,7 @@ function App() {
     setLoading(false);
 
     let positionData = await getPositions(userId);
-    // stockData.data.sort((a, b) => (a.timestamp < b.timestamp ? 1 : -1));
+    stockData.data.sort((a, b) => (a.timestamp < b.timestamp ? 1 : -1));
     setStockData(stockData.data);
 
     const combinedData = positionData.data.map((position) => {
@@ -128,37 +133,42 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Header />
-        <main>
-          <Routes>
-            <Route path="/" element={<HomePage />}></Route>
-            <Route path="/home" element={<HomePage />}></Route>
-            <Route
-              path="/:userId/positions/all"
-              element={
-                <PortfolioPage
-                  userPositions={userPositions}
-                  handleAddStock={handleAddStock}
-                  selectedStock={selectedStock}
-                  stockData={stockData}
-                  isOpen={isOpen}
-                  setIsOpen={setIsOpen}
-                  isEditOpen={isEditOpen}
-                  setIsEditOpen={setIsEditOpen}
-                  loading={loading}
-                  getUserPositions={getUserPositions}
-                />
-              }
-            ></Route>
-            <Route
-              path="/:userId/dca/all"
-              element={<DcaPage userPositions={userPositions} />}
-            ></Route>
-            <Route path="/about" element={<AboutPage />}></Route>
-            <Route path="/more" element={<MorePage />}></Route>
-          </Routes>
-        </main>
-        <Footer userId={userId} />
+        <AuthContextProvider>
+          <Header />
+          <main>
+            <Routes>
+              <Route path="/" element={<LandingPage />}></Route>
+              <Route path="/land" element={<LandingPage />}></Route>
+              <Route path="/signin" element={<SigninPage />}></Route>
+              <Route path="/home" element={<HomePage />}></Route>
+              <Route
+                path="/:userId/positions/all"
+                element={
+                  <PortfolioPage
+                    userPositions={userPositions}
+                    handleAddStock={handleAddStock}
+                    selectedStock={selectedStock}
+                    stockData={stockData}
+                    isOpen={isOpen}
+                    setIsOpen={setIsOpen}
+                    isEditOpen={isEditOpen}
+                    setIsEditOpen={setIsEditOpen}
+                    loading={loading}
+                    populateState={populateState}
+                  />
+                }
+              ></Route>
+              <Route
+                path="/:userId/dca/all"
+                element={<DcaPage userPositions={userPositions} />}
+              ></Route>
+              <Route path="/about" element={<AboutPage />}></Route>
+              <Route path="/more" element={<MorePage />}></Route>
+            </Routes>
+          </main>
+          {/* {user?.displayName ? <Footer userId={userId} /> : <></>} */}
+          <Footer userId={userId} />
+        </AuthContextProvider>
       </BrowserRouter>
     </>
   );

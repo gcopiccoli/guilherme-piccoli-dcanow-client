@@ -4,7 +4,7 @@ import searchIcon from "../../assets/icons/search-icon.svg";
 import "./AddPositions.scss";
 import { useNavigate } from "react-router-dom";
 
-const AddPositions = ({ handleAddStock, selectedStock, getUserPositions }) => {
+const AddPositions = ({ handleAddStock, selectedStock, populateState }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [formData, setFormData] = useState({});
 
@@ -29,7 +29,7 @@ const AddPositions = ({ handleAddStock, selectedStock, getUserPositions }) => {
       stock_symbol: searchTerm,
     });
 
-    getUserPositions();
+    populateState();
     setSearchTerm("");
     e.target.reset();
   };

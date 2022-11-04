@@ -37,4 +37,20 @@
     background-repeat: no-repeat;
     background-position: center;
   }
+
+  &__auth {
+    display: flex;
+    align-items: center;
+  }
+
+  &__avatar {
+    display: flex;
+    align-items: center;
+  }
+
+  &__text {
+    font-family: "montserrat-semibold";
+    color: $font-color-secondary;
+    margin-right: 1.6rem;
+  }
 }
