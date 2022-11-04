@@ -5,22 +5,10 @@ import "./AddPositions.scss";
 import { useNavigate } from "react-router-dom";
 
 const AddPositions = ({ handleAddStock, selectedStock, getUserPositions }) => {
-  // const [stocks, setStocks] = useState(null);
-
   const [searchTerm, setSearchTerm] = useState("");
   const [formData, setFormData] = useState({});
 
-  const navigate = useNavigate();
-
   let userId = 1;
-  // if (!stocks) {
-  //   return;
-  // }
-
-  // const onFormSubmit = () => {
-  //   // make axios call here
-  //   // in req.body, package form fields
-  // };
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -34,8 +22,6 @@ const AddPositions = ({ handleAddStock, selectedStock, getUserPositions }) => {
   const addPositionHandler = async (e) => {
     e.preventDefault();
 
-    console.log("test");
-
     console.log({ ...formData, stock_symbol: searchTerm });
 
     await axios.post(`http://localhost:8084/${userId}/positions/add`, {
@@ -43,18 +29,12 @@ const AddPositions = ({ handleAddStock, selectedStock, getUserPositions }) => {
       stock_symbol: searchTerm,
     });
 
-    console.log(formData);
     getUserPositions();
     setSearchTerm("");
-    // e.target.reset();
-
-    // navigate(`/${userId}/positions/all`);
+    e.target.reset();
   };
 
-  console.log(formData);
-  // if (!selectedStock) {
-  //   return <h1>Loading...</h1>;
-  // }
+  console.log("teste");
 
   return (
     <nav className="add-form">

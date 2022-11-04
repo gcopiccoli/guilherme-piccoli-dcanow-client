@@ -47,6 +47,7 @@ function App() {
     try {
       const { data: firstData } = await getPositions(userId);
       setUserPositions(firstData);
+      // firstData.sort((a, b) => (a.timestamp < b.timestamp ? 1 : -1));
     } catch (err) {
       console.log(err);
     }
@@ -64,7 +65,9 @@ function App() {
     setLoading(false);
 
     let positionData = await getPositions(userId);
+    // stockData.data.sort((a, b) => (a.timestamp < b.timestamp ? 1 : -1));
     setStockData(stockData.data);
+
     const combinedData = positionData.data.map((position) => {
       let stockName = null;
       let stockPrice = null;
@@ -87,6 +90,7 @@ function App() {
       };
       return combinedStockData;
     });
+
     setUserPositions(combinedData);
   };
 
