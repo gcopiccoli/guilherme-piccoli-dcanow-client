@@ -2,13 +2,13 @@ import { useState } from "react";
 import axios from "axios";
 import searchIcon from "../../assets/icons/search-icon.svg";
 import "./AddPositions.scss";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const AddPositions = ({ handleAddStock, selectedStock, populateState }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [formData, setFormData] = useState({});
 
-  let userId = 1;
+  let { userId } = useParams();
 
   const handleChange = (e) => {
     const value = e.target.value;

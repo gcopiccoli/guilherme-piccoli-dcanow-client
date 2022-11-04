@@ -7,4 +7,16 @@ export const getPositions = async (id) => {
   return axios.get(`http://localhost:8084/${id}/positions/all`);
 };
 
+export const getUser = async (id) => {
+  return axios.get(`http://localhost:8084/${id}`);
+};
+
+export const getUserByEmail = async (email) => {
+  return axios.get(`http://localhost:8084/getuserbyemail?email=${email}`);
+};
+
+export const registerNewUser = async (user) => {
+  return axios.post(`http://localhost:8084/register`, user);
+};
+
 export default api_url_stocks;

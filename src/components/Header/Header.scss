@@ -28,12 +28,22 @@
     color: $font-color-secondary;
   }
 
-  &__avatar-icon {
+  // &__avatar-icon {
+  //   // display: flex;
+  //   // width: 3.6rem;
+  //   // height: 3.6rem;
+  //   // border-radius: 50%;
+  //   // background-image: url("../../assets/icons/person-icon.svg");
+  //   // background-color: $border-color;
+  //   // background-repeat: no-repeat;
+  //   // background-position: center;
+  // }
+
+  &__avatar-image {
+    display: flex;
     width: 3.6rem;
     height: 3.6rem;
     border-radius: 50%;
-    background-image: url("../../assets/icons/person-icon.svg");
-    background-color: $border-color;
     background-repeat: no-repeat;
     background-position: center;
   }
@@ -43,12 +53,13 @@
     align-items: center;
   }
 
-  &__avatar {
+  &__login {
     display: flex;
     align-items: center;
   }
 
   &__text {
+    all: unset;
     font-family: "montserrat-semibold";
     color: $font-color-secondary;
     margin-right: 1.6rem;

@@ -1,8 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import api_url_stocks from "./utilities/api";
-import { getPositions } from "./utilities/api";
+import api_url_stocks, { getUserByEmail } from "./utilities/api";
+import { getPositions, getUser } from "./utilities/api";
 // import { UserAuth } from "./context/AuthContext";
 
 import axios from "axios";
@@ -21,6 +21,7 @@ import "./App.scss";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import SigninPage from "./pages/SigninPage/SigninPage";
 import { AuthContextProvider } from "./context/AuthContext";
+import { UserAuth } from "./context/AuthContext";
 
 function App() {
   const [stockData, setStockData] = useState([]);
@@ -29,11 +30,11 @@ function App() {
   const [isOpen, setIsOpen] = useState(null);
   const [isEditOpen, setIsEditOpen] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [userIdFromDB, setUserIdFromDb] = useState(0);
   // const { user } = UserAuth();
-
+  const user = UserAuth();
   // Todo: Make dynamic via firebase
-  let userId = 1;
-
+  console.log(user);
   const handleAddStock = (e, searchTerm) => {
     e.preventDefault();
 
@@ -50,9 +51,11 @@ function App() {
 
   const getUserPositions = async () => {
     try {
-      const { data: firstData } = await getPositions(userId);
-      setUserPositions(firstData);
-      firstData.sort((a, b) => (a.timestamp < b.timestamp ? 1 : -1));
+      const { data: userFromDb } = await getUserByEmail(user.email);
+      const { data: positions } = await getPositions(userFromDb.id);
+      positions.sort((a, b) => (a.timestamp < b.timestamp ? 1 : -1));
+      console.log(positions);
+      setUserPositions(positions);
     } catch (err) {
       console.log(err);
     }
@@ -67,9 +70,12 @@ function App() {
     // Enabled temporarily to simulate hitting the real API
     const stockData = await axios.get("http://localhost:8084/test-data");
 
+    const { data: userFromDb } = await getUserByEmail("gcopiccoli@gmail.com");
+
+    setUserIdFromDb(userFromDb.id);
     setLoading(false);
 
-    let positionData = await getPositions(userId);
+    let positionData = await getPositions(userFromDb.id);
     stockData.data.sort((a, b) => (a.timestamp < b.timestamp ? 1 : -1));
     setStockData(stockData.data);
 
@@ -112,15 +118,16 @@ function App() {
     }
   }, [isEditOpen]);
 
-  useEffect(() => {
-    // getStockData();
-    getUserPositions();
-    populateState();
-  }, []);
+  // useEffect(() => {
+  //   // getStockData();
+  //   getUserPositions();
+  //   populateState();
+  // }, []);
 
   useEffect(() => {
     getUserPositions();
-  }, [userId]);
+    populateState();
+  }, [user]);
 
   if (!stockData) {
     return <Loader />;
@@ -167,7 +174,7 @@ function App() {
             </Routes>
           </main>
           {/* {user?.displayName ? <Footer userId={userId} /> : <></>} */}
-          <Footer userId={userId} />
+          <Footer userId={userIdFromDB} />
         </AuthContextProvider>
       </BrowserRouter>
     </>

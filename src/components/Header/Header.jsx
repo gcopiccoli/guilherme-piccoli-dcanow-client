@@ -29,11 +29,17 @@ const Header = () => {
         </div>
         <article className="header__auth">
           {user?.displayName ? (
-            <div className="header__avatar">
+            <div className="header__login">
               <button onClick={handleSignOut} className="header__text">
                 logout
               </button>
-              <div className="header__avatar-icon"></div>
+              <div className="header__avatar-icon">
+                <img
+                  src={user.photoURL}
+                  alt="User avatar"
+                  className="header__avatar-image"
+                />
+              </div>
             </div>
           ) : (
             <div className="header__login">
