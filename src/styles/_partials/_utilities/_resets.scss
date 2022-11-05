@@ -1,3 +1,5 @@
+@use "./variables" as *;
+
 *,
 *::before,
 *::after {
@@ -14,14 +16,13 @@ html {
 body {
   font-size: 1.6rem;
   font-family: "montserrat-regular";
-  background: hsla(209, 100%, 30%, 1);
-  background: linear-gradient(
-    135deg,
-    hsla(209, 100%, 30%, 1) 0%,
-    hsla(202, 46%, 67%, 1) 100%
-  );
+  background: $gradient-color;
+  background-repeat: no-repeat;
+  min-height: 100vh;
 }
 
-a {
+a,
+li {
   text-decoration: none;
+  list-style: none;
 }

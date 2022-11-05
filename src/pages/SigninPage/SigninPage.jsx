@@ -1,3 +1,4 @@
+import "./SigninPage.scss";
 import { UserAuth } from "../../context/AuthContext";
 import { useEffect } from "react";
 import { GoogleButton } from "react-google-button";
@@ -21,7 +22,7 @@ const SigninPage = () => {
 
   return (
     <section className="auth">
-      <h1 className="auth__title">Signin</h1>
+      <h1 className="auth__title">Sign in</h1>
       <div className="auth__button">
         <GoogleButton onClick={handleGoogleSignIn} />
       </div>

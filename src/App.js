@@ -3,7 +3,8 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import api_url_stocks, { getUserByEmail } from "./utilities/api";
 import { getPositions, getUser } from "./utilities/api";
-// import { UserAuth } from "./context/AuthContext";
+import { AuthContextProvider } from "./context/AuthContext";
+import { UserAuth } from "./context/AuthContext";
 
 import axios from "axios";
 
@@ -20,8 +21,6 @@ import Loader from "./components/Loader/Loader";
 import "./App.scss";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import SigninPage from "./pages/SigninPage/SigninPage";
-import { AuthContextProvider } from "./context/AuthContext";
-import { UserAuth } from "./context/AuthContext";
 
 function App() {
   const [stockData, setStockData] = useState([]);
@@ -35,6 +34,7 @@ function App() {
   const user = UserAuth();
   // Todo: Make dynamic via firebase
   console.log(user);
+
   const handleAddStock = (e, searchTerm) => {
     e.preventDefault();
 

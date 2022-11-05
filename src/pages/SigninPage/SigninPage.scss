@@ -1,0 +1,18 @@
+@use "../../styles/_partials/_utilities/resets" as *;
+@use "../../styles/_partials/_utilities/typography" as *;
+@use "../../styles/_partials/_utilities/mixins" as *;
+@use "../../styles/_partials/_utilities/variables" as *;
+
+.auth {
+  display: flex;
+  flex-direction: column;
+  margin: 0 2.4rem;
+
+  &__title {
+    @include title-setup;
+  }
+
+  &__button {
+    margin: 2.4rem auto;
+  }
+}
