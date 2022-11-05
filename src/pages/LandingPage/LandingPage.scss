@@ -6,6 +6,7 @@
 .landing {
   display: flex;
   flex-direction: column;
+  align-content: center;
   margin: 0 1.6rem;
   padding-bottom: 12.6rem;
 
@@ -20,6 +21,7 @@
     border-radius: 1rem;
     margin: 3.6rem 0 -7rem 0;
     top: 8rem;
+    left: 0;
   }
 
   &__title {
@@ -40,13 +42,41 @@
   }
 
   &__list {
+    display: flex;
+    flex-direction: column;
     padding-bottom: 6.6rem;
   }
 
   &__items {
+    margin-right: auto;
     font-family: "montserrat-semibold";
     font-size: 1.8rem;
     color: $font-color-secondary;
-    margin-bottom: 1rem;
+    border-bottom: 0.3rem solid $button-color-main;
+    padding-bottom: 0.8rem;
+    margin-bottom: 1.6rem;
+    transition: 1s linear;
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__button-box {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 6.6rem;
+  }
+
+  &__button {
+    all: unset;
+    display: flex;
+    font-size: 2.4rem;
+    border-radius: 3rem;
+    text-align: center;
+    padding: 1rem 4.6rem;
+    transition: 0.5s;
+    background-color: $support-color-primary;
+    border-bottom: 4px solid #1282a2;
+    color: $font-color-secondary;
   }
 }

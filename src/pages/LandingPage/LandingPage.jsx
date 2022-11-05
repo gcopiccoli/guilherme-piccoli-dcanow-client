@@ -19,9 +19,11 @@ const LandingPage = () => {
             <li className="landing__items">Dynamic investment distribution</li>
             <li className="landing__items">Learn about DCA strategy</li>
           </ul>
-          <Link to="/sigin">
-            <div className="landing__button"></div>
-          </Link>
+          <div className="landing__button-box">
+            <Link to="/sigin">
+              <div className="landing__button">Get started</div>
+            </Link>
+          </div>
         </div>
       </article>
     </section>
