@@ -1,0 +1,98 @@
+@use "../../styles/_partials/_utilities/resets" as *;
+@use "../../styles/_partials/_utilities/typography" as *;
+@use "../../styles/_partials/_utilities/mixins" as *;
+@use "../../styles/_partials/_utilities/variables" as *;
+
+.more {
+  margin: 2.4rem 1.6rem 10.6rem 1.6rem;
+
+  &__title {
+    @include title-setup;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    padding: 2.4rem 1.6rem;
+    box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+    border-radius: 1rem;
+    background-color: rgb(10, 17, 40, 0.65);
+  }
+
+  &__label {
+    color: $support-color-primary;
+    font-family: "montserrat-semibold";
+    font-size: 1.8rem;
+    text-align: left;
+    padding-bottom: 0.8rem;
+  }
+
+  &__input {
+    all: unset;
+    width: auto;
+    padding: 0.8rem;
+    border-radius: 1rem;
+    background-color: $button-color-second;
+    border-bottom: 4px solid $border-color;
+    margin-bottom: 2.4rem;
+  }
+
+  &__button-box {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__button {
+    all: unset;
+    display: flex;
+    font-size: 2.4rem;
+    border-radius: 3rem;
+    text-align: center;
+    padding: 1rem 4.6rem;
+    transition: 0.5s;
+    background-color: $support-color-primary;
+    border-bottom: 4px solid #1282a2;
+    color: $font-color-secondary;
+  }
+
+  &__info {
+    width: auto;
+    display: flex;
+    align-items: flex-end;
+    margin-right: auto;
+    font-family: "montserrat-semibold";
+    font-size: 1.4rem;
+    color: $font-color-secondary;
+    border-bottom: 0.3rem solid $button-color-main;
+    padding-bottom: 1.6rem;
+    margin-bottom: 2.4rem;
+    transition: 1s linear;
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__icon-linkedin {
+    width: 3.6rem;
+    height: 3.6rem;
+    background-image: url("../../assets/icons/linkedin-icon.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  &__icon-github {
+    width: 3.6rem;
+    height: 3.6rem;
+    background-image: url("../../assets/icons/github-icon.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  &__text {
+    color: $font-color-secondary;
+    margin-left: 1.6rem;
+  }
+}

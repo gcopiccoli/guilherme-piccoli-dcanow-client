@@ -31,9 +31,9 @@ const HomePage = () => {
           </h3>
         </div>
       </article>
-      <div className="landing__button-box">
+      <div className="home__button-box">
         <Link to="/sigin">
-          <div className="landing__button">Build your portfolio</div>
+          <div className="home__button">Build your portfolio</div>
         </Link>
       </div>
     </section>
