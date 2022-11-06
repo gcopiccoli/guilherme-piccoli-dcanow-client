@@ -20,7 +20,7 @@
     font-size: 3.6rem;
     text-align: left;
     margin: 2.4rem 0 0 0;
-    padding-bottom: 3.6rem;
+    padding-bottom: 6.6rem;
   }
 
   &__title-highlight {
@@ -51,7 +51,7 @@
   &__image-two {
     background-image: url("../../assets/images/home-image-character.svg");
     background-position: right;
-    width: 42%;
+    width: 40%;
     height: 20rem;
     background-size: contain;
     background-repeat: no-repeat;
@@ -69,28 +69,27 @@
   &__image-one,
   &__image-two,
   &__image-three {
-    &:hover {
-      transform-origin: center;
-      animation: swing 5s ease infinite;
-      @keyframes swing {
-        1% {
-          transform: rotate(1deg);
-        }
-        10% {
-          transform: rotate(10deg);
-        }
-        40% {
-          transform: rotate(-10deg);
-        }
-        60% {
-          transform: rotate(5deg);
-        }
-        80% {
-          transform: rotate(-5deg);
-        }
-        100% {
-          transform: rotate(1deg);
-        }
+    z-index: -1;
+    transform-origin: center;
+    animation: swing 10s ease infinite;
+    @keyframes swing {
+      1% {
+        transform: rotate(0.5deg);
+      }
+      10% {
+        transform: rotate(3deg);
+      }
+      40% {
+        transform: rotate(-3deg);
+      }
+      60% {
+        transform: rotate(1.5deg);
+      }
+      80% {
+        transform: rotate(-1.55deg);
+      }
+      100% {
+        transform: rotate(0.5deg);
       }
     }
   }
