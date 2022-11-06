@@ -1,0 +1,129 @@
+@use "../../styles/_partials/_utilities/resets" as *;
+@use "../../styles/_partials/_utilities/typography" as *;
+@use "../../styles/_partials/_utilities/mixins" as *;
+@use "../../styles/_partials/_utilities/variables" as *;
+
+.home {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  margin: 0 1.6rem;
+  padding-bottom: 12.6rem;
+
+  &__container {
+    margin-bottom: 3.6rem;
+  }
+
+  &__title {
+    font-family: "montserrat-bold";
+    color: #ffffff;
+    font-size: 3.6rem;
+    text-align: left;
+    margin: 2.4rem 0 0 0;
+    padding-bottom: 3.6rem;
+  }
+
+  &__title-highlight {
+    color: $support-color-primary;
+  }
+
+  &__feature {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-starts;
+    align-items: center;
+    width: 100%;
+    margin-top: 1.6rem;
+    &:not(:first-child):not(:last-child) {
+      justify-content: flex-end;
+    }
+  }
+
+  &__image-one {
+    background-image: url("../../assets/images/home-image-chart.svg");
+    background-position: left;
+    width: 100%;
+    height: 20rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  &__image-two {
+    background-image: url("../../assets/images/home-image-character.svg");
+    background-position: right;
+    width: 42%;
+    height: 20rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  &__image-three {
+    background-image: url("../../assets/images/home-image-pie.svg");
+    background-position: left;
+    width: 36%;
+    height: 20rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  &__image-one,
+  &__image-two,
+  &__image-three {
+    &:hover {
+      transform-origin: center;
+      animation: swing 5s ease infinite;
+      @keyframes swing {
+        1% {
+          transform: rotate(1deg);
+        }
+        10% {
+          transform: rotate(10deg);
+        }
+        40% {
+          transform: rotate(-10deg);
+        }
+        60% {
+          transform: rotate(5deg);
+        }
+        80% {
+          transform: rotate(-5deg);
+        }
+        100% {
+          transform: rotate(1deg);
+        }
+      }
+    }
+  }
+
+  &__copy-one,
+  &__copy-two,
+  &__copy-three {
+    position: absolute;
+    width: 82%;
+    color: $font-color-secondary;
+    font-family: "montserrat-light";
+    font-size: 2.4rem;
+    background-color: rgb(10, 17, 40, 0.2);
+    box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+    border-radius: 1rem;
+    padding: 0.8rem;
+  }
+
+  &__copy-one {
+    width: 72%;
+    left: 9rem;
+    text-align: right;
+  }
+
+  &__copy-two {
+    width: 74%;
+    right: 8rem;
+    text-align: left;
+  }
+
+  &__copy-three {
+    width: 82%;
+    left: 5rem;
+    text-align: right;
+  }
+}
