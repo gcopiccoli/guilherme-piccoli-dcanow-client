@@ -21,10 +21,16 @@
   }
 
   &__title {
-    font-family: "montserrat-semibold";
+    font-family: "montserrat-regular";
     color: #ffffff;
     font-size: 4.2rem;
     text-align: center;
+  }
+
+  &__title-highlight {
+    font-family: "montserrat-semibold";
+    color: $support-color-primary;
+    // font-size: 4.8rem;
   }
 
   &__image {
@@ -34,7 +40,7 @@
     background-position: left;
     background-size: cover;
     background-repeat: no-repeat;
-    margin: 12.6rem 0 6.6rem 0;
+    margin: 16.6rem 0 10.6rem 0;
   }
 
   &__list {

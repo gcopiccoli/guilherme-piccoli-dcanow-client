@@ -8,8 +8,10 @@ const LandingPage = () => {
           <div className="landing__title-box">
             <h1 className="landing__title">
               Have your{" "}
-              <span className="landing__title-highlight">DCA strategy</span> in
-              one single place
+              <span className="landing__title-highlight">
+                Dollar-Cost Averaging
+              </span>{" "}
+              strategy in one single place
             </h1>
           </div>
           <div className="landing__image"></div>
@@ -20,7 +22,7 @@ const LandingPage = () => {
             <li className="landing__items">Learn about DCA strategy</li>
           </ul>
           <div className="landing__button-box">
-            <Link to="/sigin">
+            <Link to="/signin">
               <div className="landing__button">Get started</div>
             </Link>
           </div>
