@@ -7,14 +7,13 @@
   display: flex;
   flex-direction: column;
   align-content: center;
-  margin: 2.4rem 1.6rem 8.6rem 1.6rem;
+  margin: 2.4rem 1.6rem 10.6rem 1.6rem;
   box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
   border-radius: 1rem;
-  background-color: #fefcfb;
+  background-color: rgb(10, 17, 40, 0.65);
 
   &__title {
-    font-family: "montserrat-semibold";
-    margin: 2.4rem 1.6rem 1.6rem 1.6rem;
+    @include title-setup;
   }
 
   &__value-input {
@@ -31,7 +30,12 @@
     width: 100%;
     padding: 0.6;
     font-size: 2rem;
-    border-bottom: 2px solid $support-color-primary;
+    border-bottom: 4px solid #1282a2;
+    color: $button-color-second;
+    &::placeholder {
+      color: $button-color-second;
+      font-family: "montserrat-light";
+    }
   }
 
   &__button {
@@ -42,10 +46,11 @@
     font-size: 2.4rem;
     margin-left: 1.6rem;
     border-radius: 5rem;
-    background-color: $button-color-main;
+    background-color: $support-color-primary;
+    border-bottom: 4px solid #1282a2;
     color: $font-color-secondary;
-    &:hover {
-      background-color: $support-color-secondary;
-    }
+    // &:hover {
+    //   background-color: $support-color-secondary;
+    // }
   }
 }

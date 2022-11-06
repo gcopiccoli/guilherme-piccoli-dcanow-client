@@ -91,7 +91,7 @@ const DcaPositions = ({ positions, summedRanks, inputValue }) => {
                   : "positions-dca__data--negative"
               }`}
             >
-              $ {positions.price}
+              {Math.round(investmentRatio)} %
             </p>
           </div>
         </div>
