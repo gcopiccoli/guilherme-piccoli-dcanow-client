@@ -5,6 +5,7 @@
 
 .more {
   margin: 2.4rem 1.6rem 10.6rem 1.6rem;
+  padding-bottom: 12.6rem;
 
   &__title {
     @include title-setup;
@@ -45,6 +46,7 @@
 
   &__button {
     all: unset;
+    cursor: pointer;
     display: flex;
     font-size: 2.4rem;
     border-radius: 3rem;

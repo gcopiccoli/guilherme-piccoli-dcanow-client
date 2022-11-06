@@ -39,6 +39,7 @@
   }
 
   &__button {
+    cursor: pointer;
     display: flex;
     align-items: center;
     padding: 0.8rem 1.6rem;
@@ -49,8 +50,5 @@
     background-color: $support-color-primary;
     border-bottom: 4px solid #1282a2;
     color: $font-color-secondary;
-    // &:hover {
-    //   background-color: $support-color-secondary;
-    // }
   }
 }

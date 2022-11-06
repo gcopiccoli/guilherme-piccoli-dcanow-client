@@ -71,6 +71,7 @@
 
   &__button {
     all: unset;
+    cursor: pointer;
     display: flex;
     font-size: 2.4rem;
     border-radius: 3rem;
@@ -80,5 +81,6 @@
     background-color: $support-color-primary;
     border-bottom: 4px solid #1282a2;
     color: $font-color-secondary;
+    @include button-animation;
   }
 }

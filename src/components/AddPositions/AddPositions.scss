@@ -29,6 +29,7 @@
 
   &__button {
     all: unset;
+    cursor: pointer;
     padding: 0.8rem 0.8rem 0.8rem 0.8rem;
     border-radius: 0 0.5rem 0.5rem 0;
     background-color: $support-color-primary;
@@ -103,6 +104,7 @@
 
   &__button-add {
     all: unset;
+    cursor: pointer;
     width: 100%;
     display: flex;
     align-items: center;
