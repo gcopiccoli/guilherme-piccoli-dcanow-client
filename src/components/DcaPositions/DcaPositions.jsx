@@ -2,21 +2,25 @@ import "./DcaPositions.scss";
 import { useState } from "react";
 
 const DcaPositions = ({ positions, summedRanks, inputValue }) => {
-  const [formData, setFormData] = useState({
-    id: "",
+  const [rankChange, setRankChange] = useState({
     rank: "",
-    valueInvested: 0,
-    averagePrice: 0,
-    quantity: 0,
   });
 
   let currentInvestment = positions.quantity * positions.price;
   let investmentRatio =
     (currentInvestment / positions.initial_value_invested) * 100 - 100;
 
-  const handleChange = (e) => {
-    const { name, value, id } = e.target;
-    setFormData(formData);
+  //Previous
+  // const handleChange = (e) => {
+  //   const { name, value, id } = e.target;
+  //   setFormData(formData);
+  // };
+
+  const handleRankChange = (e) => {
+    setRankChange({
+      ...rankChange,
+      rank: e.target.value,
+    });
   };
 
   return (
@@ -54,6 +58,7 @@ const DcaPositions = ({ positions, summedRanks, inputValue }) => {
               className="positions-dca__data positions-dca__data-rank"
               id="rank"
               name="rank"
+              onChange={handleRankChange}
             >
               <option value={positions.stock_rank}>
                 {positions.stock_rank}

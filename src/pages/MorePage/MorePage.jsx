@@ -26,6 +26,7 @@ const MorePage = () => {
       );
     e.target.reset();
   };
+
   return (
     <section className="more">
       <article className="more__container">

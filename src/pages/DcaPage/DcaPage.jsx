@@ -21,6 +21,7 @@ const DcaPage = ({ userPositions }) => {
           onSubmit={(e) => {
             e.preventDefault();
             setInputValue(Number(e.target.amount.value));
+            e.target.reset();
           }}
           className="dca-page__value-input"
         >
