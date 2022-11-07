@@ -15,7 +15,7 @@ export const AuthContextProvider = ({ children }) => {
 
   const googleSignIn = () => {
     const provider = new GoogleAuthProvider();
-    signInWithRedirect(auth, provider);
+    return signInWithRedirect(auth, provider);
     // .then((result) => {
     //   const displayName = result.user.displayName;
     //   const email = result.user.email;

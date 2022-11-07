@@ -2,6 +2,7 @@ import "./CurrentPositions.scss";
 import editIcon from "../../assets/icons/edit-icon.svg";
 import deleteIcon from "../../assets/icons/delete-icon.svg";
 import Loader from "../Loader/Loader";
+import { formatter } from "../../utilities/api";
 
 const CurrentPositions = ({
   // stockData,
@@ -42,19 +43,21 @@ const CurrentPositions = ({
         </div>
         <div className="positions__box">
           <p className="positions__label">Price</p>
-          <p className="positions__data">$ {positions.price}</p>
+          <p className="positions__data">${positions.price}</p>
         </div>
       </div>
       <div className="positions__wrapper">
         <div className="positions__box">
           <p className="positions__label">Initial Inv.</p>
           <p className="positions__data">
-            $ {positions.initial_value_invested}
+            {formatter.format(positions.initial_value_invested)}
           </p>
         </div>
         <div className="positions__box">
           <p className="positions__label">Current Inv.</p>
-          <p className="positions__data">$ {Math.round(currentInvestment)}</p>
+          <p className="positions__data">
+            {formatter.format(currentInvestment)}
+          </p>
         </div>
         <div className="positions__box">
           <p className="positions__label">%</p>
@@ -77,7 +80,7 @@ const CurrentPositions = ({
                 : "positions__data--negative"
             }`}
           >
-            $ {Math.round(investmentPandL)}
+            {formatter.format(investmentPandL)}
           </p>
         </div>
       </div>
@@ -92,7 +95,9 @@ const CurrentPositions = ({
         </div>
         <div className="positions__box">
           <p className="positions__label">Avg. Price</p>
-          <p className="positions__data">$ {positions.average_price}</p>
+          <p className="positions__data">
+            {formatter.format(positions.average_price)}
+          </p>
         </div>
       </div>
       <div className="positions__wrapper">

@@ -31,7 +31,7 @@ const Footer = ({ userId }) => {
         </article>
         <article
           className={
-            splitLocation[1] === "positions"
+            splitLocation[2] === `positions`
               ? "footer__wrapper--active"
               : "footer__wrapper"
           }

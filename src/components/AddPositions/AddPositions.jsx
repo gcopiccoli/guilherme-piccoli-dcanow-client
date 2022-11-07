@@ -34,8 +34,6 @@ const AddPositions = ({ handleAddStock, selectedStock, populateState }) => {
     e.target.reset();
   };
 
-  console.log("teste");
-
   return (
     <nav className="add-form">
       <h3 className="add-form__title">Add new position</h3>

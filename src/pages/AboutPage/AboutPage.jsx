@@ -37,7 +37,7 @@ const AboutPage = () => {
           <h4 className="about__reference">
             Adam Heyes -{" "}
             <Link to="https://www.investopedia.com/terms/d/dollarcostaveraging.asp">
-              <spam className="about__link">investopedia.com</spam>
+              <span className="about__link">investopedia.com</span>
             </Link>
           </h4>
           <h2 className="about__subtitle">

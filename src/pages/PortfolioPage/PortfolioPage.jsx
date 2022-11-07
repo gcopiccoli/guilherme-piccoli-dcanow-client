@@ -5,7 +5,7 @@ import DeleteModal from "../../components/DeleteModal/DeleteModal";
 import EditModal from "../../components/EditModal/EditModal";
 import Loader from "../../components/Loader/Loader";
 import "./PortfolioPage.scss";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 
 const PortfolioPage = ({
   userPositions,
@@ -22,7 +22,7 @@ const PortfolioPage = ({
   const [positionToDelete, setPositionToDelete] = useState({});
   const [positionToEdit, setPositionToEdit] = useState({});
 
-  let { userId } = useParams();
+  // let { userId } = useParams();
 
   // Todo: Make dynamic via firebase
   // let { userId } = useParams();
@@ -31,7 +31,7 @@ const PortfolioPage = ({
     <section className="portfolio-page">
       <h2 className="portfolio-page__title">Portfolio</h2>
       <AddPositions
-        userId={userId}
+        // userId={userId}
         stockData={stockData}
         handleAddStock={handleAddStock}
         selectedStock={selectedStock}

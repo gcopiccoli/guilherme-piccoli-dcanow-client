@@ -1,5 +1,6 @@
 import "./DcaPositions.scss";
 import { useState } from "react";
+import { formatter } from "../../utilities/api";
 
 const DcaPositions = ({ positions, summedRanks, inputValue }) => {
   const [rankChange, setRankChange] = useState({
@@ -37,7 +38,7 @@ const DcaPositions = ({ positions, summedRanks, inputValue }) => {
           </div>
           <div className="positions-dca__box">
             <p className="positions-dca__label">Price</p>
-            <p className="positions-dca__data">$ {positions.price}</p>
+            <p className="positions-dca__data">${positions.price}</p>
           </div>
         </div>
         <div className="positions-dca__wrapper">
@@ -84,7 +85,7 @@ const DcaPositions = ({ positions, summedRanks, inputValue }) => {
                   : "positions-dca__data--negative"
               }`}
             >
-              $ {Math.round(currentInvestment)}
+              {formatter.format(currentInvestment)}
             </p>
           </div>
           <div className="positions-dca__box">
@@ -96,7 +97,7 @@ const DcaPositions = ({ positions, summedRanks, inputValue }) => {
                   : "positions-dca__data--negative"
               }`}
             >
-              {Math.round(investmentRatio)} %
+              {Math.round(investmentRatio)}%
             </p>
           </div>
         </div>
@@ -104,7 +105,7 @@ const DcaPositions = ({ positions, summedRanks, inputValue }) => {
       <div className="positions-dca__value-box">
         <p className="positions-dca__value">
           {inputValue
-            ? `$ ${Math.round(
+            ? `${formatter.format(
                 (inputValue / summedRanks) * positions.stock_rank
               )}`
             : "$0"}

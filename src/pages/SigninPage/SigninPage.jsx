@@ -12,13 +12,20 @@ const SigninPage = () => {
   const handleGoogleSignIn = async () => {
     try {
       await googleSignIn();
+      // const result = await getRedirectResult(auth);
+      // console.log(result);
+      // console.log("Logged in...");
       navigate("/home");
     } catch (error) {
       console.log(error);
     }
   };
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    if (user) {
+      navigate("/home");
+    }
+  }, [user]);
 
   return (
     <section className="auth">

@@ -19,4 +19,9 @@ export const registerNewUser = async (user) => {
   return axios.post(`http://localhost:8084/register`, user);
 };
 
+export const formatter = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+});
+
 export default api_url_stocks;

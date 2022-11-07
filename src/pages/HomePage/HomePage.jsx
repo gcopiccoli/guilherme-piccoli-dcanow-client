@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { UserAuth } from "../../context/AuthContext";
 import "./HomePage.scss";
 
 const HomePage = () => {
   const { user } = UserAuth();
+  const { userId } = useParams();
 
   return (
     <section className="home">
@@ -32,7 +33,7 @@ const HomePage = () => {
         </div>
       </article>
       <div className="home__button-box">
-        <Link to="/sigin">
+        <Link to={`/${userId}/positions/all`}>
           <div className="home__button">Build your portfolio</div>
         </Link>
       </div>

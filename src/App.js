@@ -31,9 +31,13 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [userIdFromDB, setUserIdFromDb] = useState(0);
   // const { user } = UserAuth();
-  const user = UserAuth();
+  const { user } = UserAuth();
   // Todo: Make dynamic via firebase
-  console.log(user);
+  console.log("user in app.js", user);
+
+  const handleLogout = () => {
+    setUserIdFromDb(null);
+  };
 
   const handleAddStock = (e, searchTerm) => {
     e.preventDefault();
@@ -53,14 +57,18 @@ function App() {
     try {
       const { data: userFromDb } = await getUserByEmail(user.email);
       const { data: positions } = await getPositions(userFromDb.id);
-      positions.sort((a, b) => (a.timestamp < b.timestamp ? 1 : -1));
+      const sortedPositions = positions.sort((a, b) =>
+        b.updated_at < a.updated_at ? 1 : -1
+      );
       console.log(positions);
-      setUserPositions(positions);
+      console.log(sortedPositions);
+      setUserPositions(sortedPositions);
     } catch (err) {
       console.log(err);
     }
   };
 
+  // Merges the user positions with the API data
   const populateState = async () => {
     setLoading(true);
 
@@ -70,7 +78,7 @@ function App() {
     // Enabled temporarily to simulate hitting the real API
     const stockData = await axios.get("http://localhost:8084/test-data");
 
-    const { data: userFromDb } = await getUserByEmail("gcopiccoli@gmail.com");
+    const { data: userFromDb } = await getUserByEmail(user.email);
 
     setUserIdFromDb(userFromDb.id);
     setLoading(false);
@@ -125,8 +133,13 @@ function App() {
   // }, []);
 
   useEffect(() => {
-    getUserPositions();
-    populateState();
+    if (user) {
+      getUserPositions();
+      populateState();
+    } else {
+      // Clear the data after logging out
+      setUserPositions([]);
+    }
   }, [user]);
 
   if (!stockData) {
@@ -140,42 +153,42 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <AuthContextProvider>
-          <Header />
-          <main>
-            <Routes>
-              <Route path="/" element={<LandingPage />}></Route>
-              <Route path="/land" element={<LandingPage />}></Route>
-              <Route path="/signin" element={<SigninPage />}></Route>
-              <Route path="/home" element={<HomePage />}></Route>
-              <Route
-                path="/:userId/positions/all"
-                element={
-                  <PortfolioPage
-                    userPositions={userPositions}
-                    handleAddStock={handleAddStock}
-                    selectedStock={selectedStock}
-                    stockData={stockData}
-                    isOpen={isOpen}
-                    setIsOpen={setIsOpen}
-                    isEditOpen={isEditOpen}
-                    setIsEditOpen={setIsEditOpen}
-                    loading={loading}
-                    populateState={populateState}
-                  />
-                }
-              ></Route>
-              <Route
-                path="/:userId/dca/all"
-                element={<DcaPage userPositions={userPositions} />}
-              ></Route>
-              <Route path="/about" element={<AboutPage />}></Route>
-              <Route path="/more" element={<MorePage />}></Route>
-            </Routes>
-          </main>
-          {/* {user?.displayName ? <Footer userId={userId} /> : <></>} */}
-          <Footer userId={userIdFromDB} />
-        </AuthContextProvider>
+        {/* <AuthContextProvider> */}
+        <Header />
+        <main>
+          <Routes>
+            <Route path="/" element={<LandingPage />}></Route>
+            <Route path="/land" element={<LandingPage />}></Route>
+            <Route path="/signin" element={<SigninPage />}></Route>
+            <Route path="/home" element={<HomePage />}></Route>
+            <Route
+              path="/:userId/positions/all"
+              element={
+                <PortfolioPage
+                  userPositions={userPositions}
+                  handleAddStock={handleAddStock}
+                  selectedStock={selectedStock}
+                  stockData={stockData}
+                  isOpen={isOpen}
+                  setIsOpen={setIsOpen}
+                  isEditOpen={isEditOpen}
+                  setIsEditOpen={setIsEditOpen}
+                  loading={loading}
+                  populateState={populateState}
+                />
+              }
+            ></Route>
+            <Route
+              path="/:userId/dca/all"
+              element={<DcaPage userPositions={userPositions} />}
+            ></Route>
+            <Route path="/about" element={<AboutPage />}></Route>
+            <Route path="/more" element={<MorePage />}></Route>
+          </Routes>
+        </main>
+        {/* {user?.displayName ? <Footer userId={userId} /> : <></>} */}
+        <Footer userId={userIdFromDB} />
+        {/* </AuthContextProvider> */}
       </BrowserRouter>
     </>
   );
