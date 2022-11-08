@@ -162,7 +162,10 @@ function App() {
             <Route path="/" element={<LandingPage />}></Route>
             <Route path="/land" element={<LandingPage />}></Route>
             <Route path="/signin" element={<SigninPage />}></Route>
-            <Route path="/home" element={<HomePage />}></Route>
+            <Route
+              path="/home"
+              element={<HomePage userId={userIdFromDB} />}
+            ></Route>
             <Route
               path="/:userId/positions/all"
               element={

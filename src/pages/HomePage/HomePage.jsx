@@ -2,9 +2,10 @@ import { Link, useParams } from "react-router-dom";
 import { UserAuth } from "../../context/AuthContext";
 import "./HomePage.scss";
 
-const HomePage = () => {
+const HomePage = ({ userId }) => {
   const { user } = UserAuth();
-  const { userId } = useParams();
+  // const { userId } = useParams();
+  console.log(userId, "heeeeere");
 
   return (
     <section className="home">

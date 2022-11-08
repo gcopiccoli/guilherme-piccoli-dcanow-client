@@ -28,13 +28,18 @@ const DcaPage = ({ userPositions }) => {
             }}
             className="dca-page__value-input"
           >
-            <input
-              type="number"
-              id="amount"
-              name="amount"
-              className="dca-page__input"
-              placeholder="Insert amount"
-            />
+            <div className="dca-page__box">
+              <label htmlFor="amount" className="dca-page__label">
+                $
+              </label>
+              <input
+                type="number"
+                id="amount"
+                name="amount"
+                className="dca-page__input"
+                placeholder="Insert amount"
+              />
+            </div>
             <button className="dca-page__button">+</button>
           </form>
         </nav>

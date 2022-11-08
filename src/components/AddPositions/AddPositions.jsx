@@ -61,7 +61,7 @@ const AddPositions = ({
             id="search"
             name="search"
             value={searchTerm}
-            placeholder="Search stock"
+            placeholder="Search stock symbol"
             onChange={(e) => setSearchTerm(e.target.value)}
           />
           <button className="add-form__button">

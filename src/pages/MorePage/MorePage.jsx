@@ -73,15 +73,15 @@ const MorePage = () => {
         <h3 className="more__title">Contact</h3>
         <div className="more__info">
           <div className="more__icon-linkedin"></div>
-          <Link to="http://www.linkedin.com/in/guilhermepiccoli">
+          <a href="http://www.linkedin.com/in/guilhermepiccoli" target="_blank">
             <h3 className="more__text">linkedin.com/in/guilhermepiccoli</h3>
-          </Link>
+          </a>
         </div>
         <div className="more__info">
           <div className="more__icon-github"></div>
-          <Link to="http://www.github.com/gcopiccoli">
+          <a href="http://www.github.com/gcopiccoli" target="_blank">
             <h3 className="more__text">github.com/gcopiccoli</h3>
-          </Link>
+          </a>
         </div>
       </article>
     </section>

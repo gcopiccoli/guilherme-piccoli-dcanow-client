@@ -16,6 +16,19 @@
     @include title-setup;
   }
 
+  &__box {
+    display: flex;
+    align-items: center;
+    border-bottom: 4px solid #1282a2;
+  }
+
+  &__label {
+    color: $button-color-second;
+    font-family: "montserrat-light";
+    font-size: 2rem;
+    margin-right: 1.6rem;
+  }
+
   &__value-input {
     display: flex;
     padding: 2.4rem 1.6rem 2.4rem 1.6rem;
@@ -30,7 +43,7 @@
     width: 100%;
     padding: 0.6;
     font-size: 2rem;
-    border-bottom: 4px solid #1282a2;
+
     color: $button-color-second;
     &::placeholder {
       color: $button-color-second;
