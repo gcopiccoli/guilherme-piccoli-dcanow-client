@@ -6,10 +6,12 @@
 .nodata {
   display: flex;
   justify-content: center;
-  margin: 3.6rem 0;
 
   &__container {
-    background-color: $button-color-main;
+    background-color: rgb(41, 50, 65, 0.5);
+    padding: 2.4rem 1.6rem 6.6rem;
+    border-radius: 1rem;
+    border-bottom: 0.4rem solid $font-color-primary;
   }
 
   &__text {

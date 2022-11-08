@@ -3,6 +3,7 @@ import axios from "axios";
 import searchIcon from "../../assets/icons/search-icon.svg";
 import "./AddPositions.scss";
 import { useNavigate, useParams } from "react-router-dom";
+import { formatter } from "../../utilities/api";
 
 const AddPositions = ({ handleAddStock, selectedStock, populateState }) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -71,7 +72,9 @@ const AddPositions = ({ handleAddStock, selectedStock, populateState }) => {
             </div>
             <div className="add-form__box">
               <p className="add-form__label">Price</p>
-              <p className="add-form__data">$ {selectedStock.price}</p>
+              <p className="add-form__data">
+                {formatter.format(selectedStock.price)}
+              </p>
             </div>
           </article>
           <div className="add-form__wrapper">

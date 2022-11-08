@@ -29,7 +29,7 @@ const DcaPositions = ({ positions, summedRanks, inputValue }) => {
       <article className="positions-dca__container">
         <div className="positions-dca__wrapper">
           <div className="positions-dca__box">
-            <p className="positions-dca__label">Ticker</p>
+            <p className="positions-dca__label">Symbol</p>
             <p className="positions-dca__data">{positions.stock_symbol}</p>
           </div>
           <div className="positions-dca__box">
