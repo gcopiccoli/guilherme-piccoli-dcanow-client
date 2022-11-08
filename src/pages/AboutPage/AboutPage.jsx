@@ -10,7 +10,7 @@ const AboutPage = () => {
           <h2 className="about__subtitle">Intro</h2>
           <p className="about__copy">
             Most of time investing ca be daunting and challenging. Majority of
-            outsider and big part of investors still take in consideration the
+            outsiders and big part of investors still take in consideration the
             mindset of beating and time the market to be successful. But this is
             not alway the case.
           </p>

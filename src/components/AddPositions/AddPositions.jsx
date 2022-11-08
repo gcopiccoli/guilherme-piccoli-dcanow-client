@@ -3,9 +3,14 @@ import axios from "axios";
 import searchIcon from "../../assets/icons/search-icon.svg";
 import "./AddPositions.scss";
 import { useNavigate, useParams } from "react-router-dom";
-import { formatter } from "../../utilities/api";
+import { formatter, getPositions } from "../../utilities/api";
 
-const AddPositions = ({ handleAddStock, selectedStock, populateState }) => {
+const AddPositions = ({
+  handleAddStock,
+  selectedStock,
+  populateState,
+  userPositions,
+}) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [formData, setFormData] = useState({});
 
@@ -24,6 +29,16 @@ const AddPositions = ({ handleAddStock, selectedStock, populateState }) => {
     e.preventDefault();
 
     console.log({ ...formData, stock_symbol: searchTerm });
+
+    console.log(userPositions);
+
+    const usersExistingPositions = userPositions.map(
+      (position) => position.stock_symbol
+    );
+
+    if (usersExistingPositions.includes(searchTerm)) {
+      return;
+    }
 
     await axios.post(`http://localhost:8084/${userId}/positions/add`, {
       ...formData,

@@ -38,6 +38,7 @@ const PortfolioPage = ({
           handleAddStock={handleAddStock}
           selectedStock={selectedStock}
           populateState={populateState}
+          userPositions={userPositions}
         />
         <section className="positions">
           <h3 className="positions__title">Current Positions</h3>

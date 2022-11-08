@@ -1,15 +1,17 @@
 import { Link } from "react-router-dom";
 import { UserAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import userImg from "../../assets/icons/person-icon.svg";
 import "./Header.scss";
 
-const Header = () => {
+const Header = ({ setUserIdFromDb }) => {
   const { user, logOut } = UserAuth();
   const navigate = useNavigate();
 
   const handleSignOut = async () => {
     try {
       await logOut();
+      setUserIdFromDb(0);
       navigate("/land");
     } catch (error) {
       console.log(error);
@@ -35,9 +37,14 @@ const Header = () => {
               </button>
               <div className="header__avatar-icon">
                 <img
-                  src={user.photoURL}
+                  src={`${user.photoURL}`}
                   alt="User avatar"
                   className="header__avatar-image"
+                  referrerPolicy="no-referrer"
+                  onError={({ currentTarget }) => {
+                    currentTarget.onerror = null;
+                    currentTarget.src = userImg;
+                  }}
                 />
               </div>
             </div>

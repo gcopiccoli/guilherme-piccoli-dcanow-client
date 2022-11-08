@@ -5,7 +5,7 @@ const NoData = () => {
     <section className="nodata">
       <div className="nodata__container">
         <h2 className="nodata__text">
-          No position to display. Add positions to start.
+          No positions to display. Sign in/add positions to start.
         </h2>
       </div>
     </section>
