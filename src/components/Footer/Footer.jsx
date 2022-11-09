@@ -61,13 +61,13 @@ const Footer = ({ userId }) => {
               : "footer__wrapper"
           }
         >
-          <Link className="footer__link" to="/about">
+          <Link className="footer__link" to="/learn">
             <img
               src={aboutIcon}
               alt="About icon"
               className="footer__icon footer__icon-about"
             />
-            <p className="footer__icon-title">About</p>
+            <p className="footer__icon-title">Learn</p>
           </Link>
         </article>
         <article

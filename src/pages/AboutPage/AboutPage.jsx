@@ -5,7 +5,7 @@ const AboutPage = () => {
   return (
     <section className="about">
       <article className="about__container">
-        <h1 className="about__title">About Dollar-Cost Averaging</h1>
+        <h1 className="about__title">Learn about Dollar-Cost Averaging</h1>
         <div className="about__card">
           <h2 className="about__subtitle">Intro</h2>
           <p className="about__copy">

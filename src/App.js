@@ -187,7 +187,7 @@ function App() {
               path="/:userId/dca/all"
               element={<DcaPage userPositions={userPositions} />}
             ></Route>
-            <Route path="/about" element={<AboutPage />}></Route>
+            <Route path="/learn" element={<AboutPage />}></Route>
             <Route path="/more" element={<MorePage />}></Route>
           </Routes>
         </main>
