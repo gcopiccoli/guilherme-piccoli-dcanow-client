@@ -74,10 +74,10 @@ function App() {
     setLoading(true);
 
     // Disabled temporarily to prevent running out of API credits
-    // const stockData = await axios.get(api_url_stocks);
+    const stockData = await axios.get(api_url_stocks);
 
     // Enabled temporarily to simulate hitting the real API
-    const stockData = await axios.get("http://localhost:8084/test-data");
+    // const stockData = await axios.get("http://localhost:8084/test-data");
 
     const { data: userFromDb } = await getUserByEmail(user.email);
 

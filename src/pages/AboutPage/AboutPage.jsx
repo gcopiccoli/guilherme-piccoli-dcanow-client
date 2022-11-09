@@ -9,13 +9,13 @@ const AboutPage = () => {
         <div className="about__card">
           <h2 className="about__subtitle">Intro</h2>
           <p className="about__copy">
-            Most of time investing ca be daunting and challenging. Majority of
+            Most of time investing can be daunting and challenging. Majority of
             outsiders and big part of investors still take in consideration the
             mindset of beating and time the market to be successful. But this is
             not alway the case.
           </p>
           <p className="about__copy">
-            If we have a long term view, there's simple staregy that can easiely
+            If we have a long term view, there's simple staregy that can easily
             be successfull regarless ups and downs of the market. That's
             Dollar-Cost Averagin (DCA).
           </p>
@@ -32,7 +32,7 @@ const AboutPage = () => {
             in a target security at regular intervals over a certain period of
             time, regardless of price. By using dollar-cost averaging, investors
             may lower their average cost per share and reduce the impact of
-            volatility on the their portfolios."
+            volatility on their portfolios."
           </p>
           <h4 className="about__reference">
             Adam Heyes -{" "}
