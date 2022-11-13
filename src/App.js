@@ -31,14 +31,7 @@ function App() {
   const [isEditOpen, setIsEditOpen] = useState(null);
   const [loading, setLoading] = useState(false);
   const [userIdFromDB, setUserIdFromDb] = useState(0);
-  // const { user } = UserAuth();
   const { user } = UserAuth();
-  // Todo: Make dynamic via firebase
-  console.log("user in app.js", user);
-
-  // const handleLogout = () => {
-  //   setUserIdFromDb(null);
-  // };
 
   const handleAddStock = (e, searchTerm) => {
     e.preventDefault();
@@ -49,11 +42,6 @@ function App() {
     setSelectedStock(searchedStock);
   };
 
-  // const getStockData = async () => {
-  //   const { data } = await axios.get(api_url_stocks);
-  //   setStockData(data);
-  // };
-
   const getUserPositions = async () => {
     try {
       const { data: userFromDb } = await getUserByEmail(user.email);
@@ -61,8 +49,6 @@ function App() {
       const sortedPositions = positions.sort((a, b) =>
         b.updated_at < a.updated_at ? 1 : -1
       );
-      console.log(positions);
-      console.log(sortedPositions);
       setUserPositions(sortedPositions);
     } catch (err) {
       console.log(err);
@@ -127,12 +113,6 @@ function App() {
     }
   }, [isEditOpen]);
 
-  // useEffect(() => {
-  //   // getStockData();
-  //   getUserPositions();
-  //   populateState();
-  // }, []);
-
   useEffect(() => {
     if (user) {
       getUserPositions();
@@ -154,7 +134,6 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        {/* <AuthContextProvider> */}
         <Header setUserIdFromDb={setUserIdFromDb} />
         <ScrollToTop />
         <main>
@@ -191,10 +170,7 @@ function App() {
             <Route path="/more" element={<MorePage />}></Route>
           </Routes>
         </main>
-        {/* {userIdFromDB && <Footer userId={userIdFromDB} />} */}
-        {/* {user?.displayName ?  : <></>} */}
         <Footer userId={userIdFromDB} />
-        {/* </AuthContextProvider> */}
       </BrowserRouter>
     </>
   );

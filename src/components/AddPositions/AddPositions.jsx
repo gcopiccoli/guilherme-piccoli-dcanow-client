@@ -2,8 +2,8 @@ import { useState } from "react";
 import axios from "axios";
 import searchIcon from "../../assets/icons/search-icon.svg";
 import "./AddPositions.scss";
-import { useNavigate, useParams } from "react-router-dom";
-import { formatter, getPositions } from "../../utilities/api";
+import { useParams } from "react-router-dom";
+import { formatter } from "../../utilities/api";
 
 const AddPositions = ({
   handleAddStock,
