@@ -1,7 +1,6 @@
 import { useRef } from "react";
 import emailjs from "@emailjs/browser";
 import "./MorePage.scss";
-import { Link } from "react-router-dom";
 
 const MorePage = () => {
   const form = useRef();

@@ -16,17 +16,6 @@ export const AuthContextProvider = ({ children }) => {
   const googleSignIn = () => {
     const provider = new GoogleAuthProvider();
     return signInWithRedirect(auth, provider);
-    // .then((result) => {
-    //   const displayName = result.user.displayName;
-    //   const email = result.user.email;
-    //   const photoURL = result.user.photoURL;
-
-    //   console.log("hello!");
-    //   console.log(result);
-    // })
-    // .catch((error) => {
-    //   console.log(error);
-    // });
   };
 
   const logOut = () => {
@@ -38,7 +27,6 @@ export const AuthContextProvider = ({ children }) => {
       if (currentUser != null) {
         getUserByEmail(currentUser.email).then((response) => {
           if (!response.data) {
-            // if not, add them
             console.log(currentUser);
 
             const newUser = { ...currentUser, auth_type: "google" };

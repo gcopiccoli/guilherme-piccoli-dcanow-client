@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "./LandingPage.scss";
+
 const LandingPage = () => {
   return (
     <section className="landing">

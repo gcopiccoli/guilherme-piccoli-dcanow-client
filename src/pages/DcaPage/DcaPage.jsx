@@ -14,7 +14,6 @@ const DcaPage = ({ userPositions }) => {
     setSummedRanks(summedRanks);
   }, []);
 
-  console.log(userPositions, "hereeeeeeee");
   return (
     <section className="dca-page">
       <h2 className="dca-page__title">DCA</h2>
