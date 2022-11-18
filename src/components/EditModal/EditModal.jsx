@@ -1,27 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import closeIcon from "../../assets/icons/close-icon-dark.svg";
 import axios from "axios";
 import "./EditModal.scss";
-import { useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 const EditModal = ({ open, onClose, positionToEdit }) => {
-  // Some state for the position data
-  // Note: on page load, the API call to our backend hasn't finished
-  // therefore the `positionToEdit` prop is empty
   const [formData, setFormData] = useState({});
+  let { userId } = useParams();
 
-  // When the `positionToEdit` prop is filled from the API call
   useEffect(() => {
-    // Set the state with the filled values
     setFormData(positionToEdit);
-  }, [positionToEdit]); // will run every time the `positionToEdit` prop changes
+  }, [positionToEdit]);
 
   if (!open) return null;
 
-  // Todo: Use dynamic user ID (from firebase?)
-  let userId = 1;
-
-  // Update the state (but only the changed value)
   const handleChange = (e) => {
     const value = e.target.value;
 
@@ -31,16 +23,13 @@ const EditModal = ({ open, onClose, positionToEdit }) => {
     });
   };
 
-  // Sends patch request to backend
   const editHandler = async (e) => {
     e.preventDefault();
 
-    // Copy the form data, and remove the key/value pairs we don't need
     const copiedFormData = { ...formData };
     delete copiedFormData["name"];
     delete copiedFormData["price"];
 
-    // TODO: put root of domain in .env varable
     await axios.patch(
       `http://localhost:8084/${userId}/positions/${positionToEdit.id}/update`,
       copiedFormData

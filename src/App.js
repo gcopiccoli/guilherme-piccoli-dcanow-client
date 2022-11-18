@@ -1,9 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import api_url_stocks, { getUserByEmail } from "./utilities/api";
 import { getPositions, getUser } from "./utilities/api";
-import { AuthContextProvider } from "./context/AuthContext";
 import { UserAuth } from "./context/AuthContext";
 
 import axios from "axios";
@@ -55,7 +53,6 @@ function App() {
     }
   };
 
-  // Merges the user positions with the API data
   const populateState = async () => {
     setLoading(true);
 
@@ -100,7 +97,6 @@ function App() {
     setUserPositions(combinedData);
   };
 
-  // When the user closes the modal, get fresh data
   useEffect(() => {
     if (isOpen === false) {
       populateState();
@@ -118,7 +114,6 @@ function App() {
       getUserPositions();
       populateState();
     } else {
-      // Clear the data after logging out
       setUserPositions([]);
     }
   }, [user]);

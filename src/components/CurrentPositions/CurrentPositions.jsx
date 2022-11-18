@@ -5,7 +5,6 @@ import Loader from "../Loader/Loader";
 import { formatter } from "../../utilities/api";
 
 const CurrentPositions = ({
-  // stockData,
   positions,
   setIsOpen,
   setIsEditOpen,

@@ -4,8 +4,6 @@ import "./HomePage.scss";
 
 const HomePage = ({ userId }) => {
   const { user } = UserAuth();
-  // const { userId } = useParams();
-  console.log(userId, "heeeeere");
 
   return (
     <section className="home">

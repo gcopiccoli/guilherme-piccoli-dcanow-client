@@ -1,3 +1,24 @@
+# DCAnow
+
+The entire file package can be accessed on: https://github.com/gcopiccoli/guilherme-piccoli-dcanow-client and https://github.com/gcopiccoli/guilherme-piccoli-dcanow-server
+
+## Instructions
+
+MOre info can be found on Synapse ReadMe file.
+
+### View
+
+DCAnow is a Mobile application, it's recommend to use Mobile dimensions on the browser when inspecting.
+
+### Authentication
+
+Utilise Google Chrome browser, and login with your Google Account to the browser prior sign in to the application (sometimes there's an issue with Firebase when log in with Gmail where it says that the app is not secure).
+
+### Usage
+
+Utilise the following stock symbols for adding a stock i.e "MS, MMM, C, GOOG, MSFT, FB..."
+The app is using the web API you are able to find any symbol in CAPSLOCK
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

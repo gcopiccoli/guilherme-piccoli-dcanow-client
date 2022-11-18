@@ -3,7 +3,6 @@ import { UserAuth } from "../../context/AuthContext";
 import { useEffect } from "react";
 import { GoogleButton } from "react-google-button";
 import { useNavigate } from "react-router-dom";
-import { getUserByEmail, registerNewUser } from "../../utilities/api";
 
 const SigninPage = () => {
   const { googleSignIn, user } = UserAuth();
@@ -12,9 +11,6 @@ const SigninPage = () => {
   const handleGoogleSignIn = async () => {
     try {
       await googleSignIn();
-      // const result = await getRedirectResult(auth);
-      // console.log(result);
-      // console.log("Logged in...");
       navigate("/home");
     } catch (error) {
       console.log(error);
