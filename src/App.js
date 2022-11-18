@@ -152,6 +152,7 @@ function App() {
                   userPositions={userPositions}
                   handleAddStock={handleAddStock}
                   selectedStock={selectedStock}
+                  setSelectedStock={setSelectedStock}
                   stockData={stockData}
                   isOpen={isOpen}
                   setIsOpen={setIsOpen}

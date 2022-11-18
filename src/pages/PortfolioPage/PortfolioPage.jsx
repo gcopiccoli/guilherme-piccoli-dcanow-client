@@ -11,6 +11,7 @@ import "./PortfolioPage.scss";
 const PortfolioPage = ({
   userPositions,
   selectedStock,
+  setSelectedStock,
   stockData,
   handleAddStock,
   isOpen,
@@ -37,6 +38,8 @@ const PortfolioPage = ({
           stockData={stockData}
           handleAddStock={handleAddStock}
           selectedStock={selectedStock}
+          setSelectedStock={setSelectedStock}
+          onClose={() => setSelectedStock(false)}
           populateState={populateState}
           userPositions={userPositions}
         />
