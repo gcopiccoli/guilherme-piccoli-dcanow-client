@@ -10,6 +10,7 @@ const AddPositions = ({
   selectedStock,
   populateState,
   userPositions,
+  onClose,
 }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [formData, setFormData] = useState({});
@@ -48,6 +49,7 @@ const AddPositions = ({
     populateState();
     setSearchTerm("");
     e.target.reset();
+    onClose();
   };
 
   return (
@@ -61,7 +63,7 @@ const AddPositions = ({
             id="search"
             name="search"
             value={searchTerm}
-            placeholder="Search stock symbol"
+            placeholder="Search stock symbol i.e APPL"
             onChange={(e) => setSearchTerm(e.target.value)}
           />
           <button className="add-form__button">
@@ -69,7 +71,7 @@ const AddPositions = ({
               src={searchIcon}
               alt="Search icon"
               className="add-form__button-icon"
-              onClick={(e) => handleAddStock(e, searchTerm)}
+              onClick={(e) => handleAddStock(e, searchTerm.toLocaleUpperCase())}
             />
           </button>
         </article>
